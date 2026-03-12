@@ -1,0 +1,2323 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="INZO P2P Platform Terms, Conditions &amp; Policies | شروط وأحكام وسياسات منصة INZO P2P" name="description"/>
+<meta content="#05080f" name="theme-color"/>
+<title data-ar="سياسات منصة P2P - INZO" data-en="P2P Platform Policies - INZO">سياسات منصة P2P - INZO</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&amp;family=Tajawal:wght@300;400;500;700;800&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+/* ============================================================
+   CSS VARIABLES & RESET
+   ============================================================ */
+:root {
+  --bg-primary: #05080f;
+  --bg-secondary: #0a0f1e;
+  --bg-card: #0d1525;
+  --bg-card-hover: #111c30;
+  --accent-blue: #1e6fff;
+  --accent-cyan: #00c8ff;
+  --accent-glow: rgba(30,111,255,0.3);
+  --text-primary: #e8eaf6;
+  --text-secondary: #8b9ab8;
+  --text-muted: #4a5578;
+  --border: rgba(30,111,255,0.15);
+  --border-active: rgba(30,111,255,0.5);
+  --sidebar-width: 300px;
+  --header-height: 70px;
+  --font-ar: 'Cairo', sans-serif;
+  --font-en: 'Inter', sans-serif;
+  --transition-fast: 0.18s ease;
+  --transition-med: 0.3s ease;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-ar);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.lang-en {
+  font-family: var(--font-en);
+  direction: ltr;
+}
+
+/* ============================================================
+   STARS BACKGROUND
+   ============================================================ */
+#stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  animation: twinkle linear infinite;
+}
+@keyframes twinkle {
+  0%,100% { opacity: 0.05; }
+  50% { opacity: 0.4; }
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header {
+  background: rgba(5,8,15,0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top:0; left:0; right:0;
+  z-index: 1000;
+  gap: 1rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.logo {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.header-title {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Language Toggle */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  background: rgba(30,111,255,0.08);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  height: 36px;
+}
+
+.lang-btn {
+  padding: 0 0.85rem;
+  height: 100%;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+  font-family: 'Inter', sans-serif;
+}
+
+.lang-btn.active {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  color: #fff;
+}
+
+.lang-btn:hover:not(.active) {
+  color: var(--text-primary);
+  background: rgba(30,111,255,0.1);
+}
+
+/* Mobile menu toggle */
+.menu-toggle {
+  display: none;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  background: rgba(30,111,255,0.08);
+  border-radius: 8px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.menu-toggle span {
+  width: 18px;
+  height: 2px;
+  background: var(--text-secondary);
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+}
+
+.menu-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.layout {
+  display: flex;
+  margin-top: var(--header-height);
+  min-height: calc(100vh - var(--header-height));
+  position: relative;
+}
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+.sidebar {
+  width: var(--sidebar-width);
+  background: #081120;
+  border-left: 1px solid var(--border);
+  position: fixed;
+  right: 0;
+  top: var(--header-height);
+  bottom: 0;
+  overflow-y: auto;
+  padding: 1.5rem 0 3rem;
+  transition: transform var(--transition-med), opacity var(--transition-fast);
+  z-index: 1200;
+  will-change: transform;
+  opacity: 1;
+}
+
+body.lang-en .sidebar {
+  right: auto;
+  left: 0;
+  border-left: none;
+  border-right: 1px solid var(--border);
+}
+
+.sidebar::-webkit-scrollbar { width: 3px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: rgba(30,111,255,0.4); border-radius: 2px; }
+
+.sidebar-group { margin-bottom: 0.25rem; }
+
+.sidebar-group-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 1rem 1.5rem 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sidebar-group-title::before {
+  content: '';
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--accent-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--accent-cyan);
+  flex-shrink: 0;
+}
+
+.sidebar-item {
+  display: block;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border-right: 3px solid transparent;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  user-select: none;
+}
+
+body.lang-en .sidebar-item {
+  border-right: none;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-item:hover {
+  background: rgba(30,111,255,0.08);
+  color: var(--text-primary);
+  border-right-color: var(--accent-blue);
+}
+
+body.lang-en .sidebar-item:hover {
+  border-right-color: transparent;
+  border-left-color: var(--accent-blue);
+}
+
+.sidebar-item.active {
+  background: rgba(30,111,255,0.12);
+  color: var(--accent-cyan);
+  border-right-color: var(--accent-cyan);
+  font-weight: 600;
+}
+
+body.lang-en .sidebar-item.active {
+  border-right-color: transparent;
+  border-left-color: var(--accent-cyan);
+}
+
+/* Overlay for mobile */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-fast), visibility var(--transition-fast);
+  z-index: 1100;
+}
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+.main {
+  margin-right: var(--sidebar-width);
+  flex: 1;
+  padding: 2.5rem 3rem;
+  max-width: calc(100% - var(--sidebar-width));
+  min-width: 0;
+}
+
+body.lang-en .main {
+  margin-right: 0;
+  margin-left: var(--sidebar-width);
+}
+
+/* ============================================================
+   POLICY SECTIONS
+   ============================================================ */
+.policy-section {
+  display: none;
+}
+
+.policy-section.active {
+  display: block;
+  animation: fadeSlideIn 0.3s ease both;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Section header */
+.section-header { margin-bottom: 2rem; }
+
+.section-header h2 {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+body.lang-en .section-header h2 {
+  font-family: 'Inter', sans-serif;
+}
+
+.section-description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  padding: 1rem 1.25rem;
+  background: rgba(30,111,255,0.05);
+  border-right: 3px solid var(--accent-blue);
+  border-radius: 0 8px 8px 0;
+}
+
+body.lang-en .section-description {
+  border-right: none;
+  border-left: 3px solid var(--accent-blue);
+  border-radius: 8px 0 0 8px;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(30,111,255,0.12);
+  border: 1px solid rgba(30,111,255,0.3);
+  color: var(--accent-cyan);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.22rem 0.7rem;
+  border-radius: 20px;
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.cat-general  { background:rgba(30,111,255,0.12); border-color:rgba(30,111,255,0.3);  color:#6eb3ff; }
+.cat-merchant { background:rgba(0,200,100,0.1);   border-color:rgba(0,200,100,0.25);  color:#00e880; }
+.cat-client   { background:rgba(255,165,0,0.1);   border-color:rgba(255,165,0,0.25);  color:#ffb84d; }
+.cat-shared   { background:rgba(180,100,255,0.1); border-color:rgba(180,100,255,0.25);color:#c880ff; }
+
+/* Intro block */
+.intro-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-right: 3px solid var(--accent-cyan);
+  border-radius: 12px;
+  padding: 1.6rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.95;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+}
+
+body.lang-en .intro-block {
+  border-right: 1px solid var(--border);
+  border-left: 3px solid var(--accent-cyan);
+}
+
+.intro-block strong { color: var(--text-primary); }
+
+/* Article block */
+.article-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.article-block:hover {
+  border-color: var(--border-active);
+  box-shadow: 0 4px 20px rgba(30,111,255,0.06);
+}
+
+.article-header {
+  padding: 1rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background: rgba(255,255,255,0.015);
+  transition: background var(--transition-fast);
+  user-select: none;
+  gap: 0.75rem;
+}
+
+.article-header:hover { background: rgba(30,111,255,0.05); }
+
+.article-header h3 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex: 1;
+}
+
+.article-num {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  min-width: 27px;
+  height: 27px;
+  border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.article-toggle {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  transition: transform var(--transition-med);
+  flex-shrink: 0;
+}
+
+.article-block.open .article-toggle { transform: rotate(180deg); }
+
+.article-body {
+  display: none;
+  padding: 0.25rem 1.4rem 1.4rem;
+  border-top: 1px solid var(--border);
+}
+
+.article-block.open .article-body {
+  display: block;
+  animation: fadeSlideIn 0.22s ease both;
+}
+
+/* Clause */
+.clause {
+  padding: 0.55rem 0;
+  font-size: 0.865rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  display: flex;
+  gap: 0.7rem;
+}
+
+.clause:last-child { border-bottom: none; }
+
+.clause-num {
+  color: var(--accent-cyan);
+  font-weight: 700;
+  font-size: 0.78rem;
+  min-width: 34px;
+  padding-top: 3px;
+  flex-shrink: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.clause-text { flex: 1; min-width: 0; }
+.clause-text strong { color: var(--text-primary); }
+
+/* Sub-list */
+.sub-list {
+  margin-top: 0.55rem;
+  list-style: none;
+  padding-right: 0.25rem;
+}
+
+body.lang-en .sub-list { padding-right: 0; padding-left: 0.25rem; }
+
+.sub-list li {
+  padding: 0.3rem 0;
+  font-size: 0.845rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.sub-list li::before {
+  content: '◆';
+  color: var(--accent-blue);
+  font-size: 0.45rem;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+/* Steps */
+.steps-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: 0.5rem;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.6rem 0.75rem;
+  background: rgba(30,111,255,0.04);
+  border-radius: 8px;
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  border: 1px solid rgba(30,111,255,0.07);
+}
+
+.step-num {
+  background: var(--accent-blue);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Sub-category headers inside article body */
+.sub-cat-title {
+  font-weight: 700;
+  color: var(--accent-cyan);
+  font-size: 0.83rem;
+  margin: 1rem 0 0.4rem;
+  display: block;
+}
+
+/* Note / danger blocks */
+.note-block {
+  background: rgba(255,165,0,0.05);
+  border: 1px solid rgba(255,165,0,0.18);
+  border-radius: 8px;
+  padding: 0.85rem 1.1rem;
+  margin: 0.6rem 0;
+  font-size: 0.84rem;
+  color: #f0c060;
+  line-height: 1.7;
+}
+
+.danger-block {
+  background: rgba(255,60,60,0.05);
+  border: 1px solid rgba(255,60,60,0.18);
+  border-radius: 8px;
+  padding: 0.85rem 1.1rem;
+  margin: 0.6rem 0;
+  font-size: 0.84rem;
+  color: #ff8080;
+  line-height: 1.7;
+}
+
+/* Back to top */
+.back-to-top {
+  position: fixed;
+  bottom: 1.75rem;
+  left: 1.75rem;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  color: #fff;
+  border: none;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(30,111,255,0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.2s;
+  z-index: 300;
+}
+
+body.lang-en .back-to-top { left: auto; right: 1.75rem; }
+
+.back-to-top.visible { opacity: 1; pointer-events: all; }
+.back-to-top:hover { transform: translateY(-3px); }
+
+/* ============================================================
+   LANGUAGE-SPECIFIC TEXT VISIBILITY
+   ============================================================ */
+[data-ar], [data-en] { display: none !important; }
+
+body.lang-ar [data-ar] { display: inline !important; }
+body.lang-en [data-en] { display: inline !important; }
+
+/* For block-level elements */
+body.lang-ar [data-ar].d-block  { display: block !important; }
+body.lang-en [data-en].d-block  { display: block !important; }
+
+body.lang-ar [data-ar].d-flex   { display: flex !important; }
+body.lang-en [data-en].d-flex   { display: flex !important; }
+
+/* ============================================================
+   RESPONSIVE — TABLET
+   ============================================================ */
+@media (max-width: 1024px) {
+  :root { --sidebar-width: 260px; }
+  .main { padding: 2rem 2rem; }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+@media (max-width: 768px) {
+  :root { --sidebar-width: 280px; }
+
+  body.menu-open {
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  .header-title { display: none; }
+
+  .menu-toggle { display: flex; }
+
+  .sidebar {
+    top: var(--header-height);
+    bottom: 0;
+    height: calc(100dvh - var(--header-height));
+    max-width: 85vw;
+    transform: translate3d(100%, 0, 0);
+    box-shadow: -8px 0 32px rgba(0,0,0,0.45);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.lang-en .sidebar {
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  .sidebar.open {
+    transform: translate3d(0, 0, 0);
+  }
+
+  body.lang-en .sidebar.open {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .sidebar-overlay {
+    inset: var(--header-height) 0 0 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .sidebar-overlay.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .main {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    max-width: 100%;
+    padding: 1.5rem 1.1rem;
+  }
+
+  .section-header h2 { font-size: 1.35rem; }
+
+  .article-header h3 { font-size: 0.88rem; }
+
+  .back-to-top {
+    left: 1rem;
+    bottom: 1rem;
+    width: 38px;
+    height: 38px;
+  }
+
+  body.lang-en .back-to-top { right: 1rem; left: auto; }
+}
+
+@media (max-width: 480px) {
+  .lang-btn { padding: 0 0.6rem; font-size: 0.74rem; }
+  .logo { font-size: 1.35rem; }
+  .main { padding: 1.25rem 0.9rem; }
+  .article-header { padding: 0.85rem 1rem; }
+  .article-body { padding: 0.2rem 1rem 1.1rem; }
+  .intro-block { padding: 1.2rem; }
+}
+</style>
+</head>
+<body class="lang-ar">
+<!-- Stars -->
+<div aria-hidden="true" id="stars"></div>
+<!-- Sidebar overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="header" role="banner">
+<div class="header-left">
+<button aria-label="Toggle menu" class="menu-toggle" id="menuToggle" onclick="toggleSidebar()">
+<span></span><span></span><span></span>
+</button>
+<span class="logo">INZO P2P</span>
+<span class="header-title">
+</span>
+</div>
+<div class="header-right">
+<div aria-label="Language selector" class="lang-switcher" role="group">
+<button aria-pressed="true" class="lang-btn active" id="btnAR" onclick="setLang('ar')">AR</button>
+<button aria-pressed="false" class="lang-btn" id="btnEN" onclick="setLang('en')">EN</button>
+</div>
+</div>
+</header>
+<!-- ============================================================
+     LAYOUT
+     ============================================================ -->
+<div class="layout">
+<!-- SIDEBAR -->
+<nav aria-label="Policy navigation" class="sidebar" id="sidebar" role="navigation">
+<div class="sidebar-group">
+<div class="sidebar-group-title">
+<span data-ar="">سياسة عامة</span>
+<span data-en="">General Policy</span>
+</div>
+<div class="sidebar-item active" onclick="showPage('general',this)">
+<span data-ar="">شروط وأحكام منصة P2P</span>
+<span data-en="">P2P Platform Terms &amp; Conditions</span>
+</div>
+</div>
+<div class="sidebar-group">
+<div class="sidebar-group-title">
+<span data-ar="">سياسات مشتركة</span>
+<span data-en="">Shared Policies</span>
+</div>
+<div class="sidebar-item" onclick="showPage('protection',this)">
+<span data-ar="">سياسة حماية الطلبات وحجز الرصيد</span>
+<span data-en="">Order Protection &amp; Balance Escrow Policy</span>
+</div>
+<div class="sidebar-item" onclick="showPage('disputes',this)">
+<span data-ar="">سياسة المناشدات والنزاعات</span>
+<span data-en="">Disputes &amp; Appeals Policy</span>
+</div>
+<div class="sidebar-item" onclick="showPage('thirdparty',this)">
+<span data-ar="">سياسة التعامل مع الطرف الثالث</span>
+<span data-en="">Third-Party Transactions Policy</span>
+</div>
+</div>
+<div class="sidebar-group">
+<div class="sidebar-group-title">
+<span data-ar="">التجار</span>
+<span data-en="">Merchants</span>
+</div>
+<div class="sidebar-item" onclick="showPage('merchant-terms',this)">
+<span data-ar="">شروط وأحكام التجار</span>
+<span data-en="">Merchant Terms &amp; Conditions</span>
+</div>
+<div class="sidebar-item" onclick="showPage('merchant-ops',this)">
+<span data-ar="">سياسة تشغيل التجار</span>
+<span data-en="">Merchant Operations Policy</span>
+</div>
+<div class="sidebar-item" onclick="showPage('merchant-violations',this)">
+<span data-ar="">نظام مخالفات التجار والعقوبات</span>
+<span data-en="">Merchant Violations &amp; Penalties</span>
+</div>
+</div>
+<div class="sidebar-group">
+<div class="sidebar-group-title">
+<span data-ar="">العملاء</span>
+<span data-en="">Clients</span>
+</div>
+<div class="sidebar-item" onclick="showPage('client-terms',this)">
+<span data-ar="">شروط وأحكام العملاء</span>
+<span data-en="">Client Terms &amp; Conditions</span>
+</div>
+<div class="sidebar-item" onclick="showPage('client-ops',this)">
+<span data-ar="">سياسة الإيداع والسحب</span>
+<span data-en="">Deposit &amp; Withdrawal Policy</span>
+</div>
+<div class="sidebar-item" onclick="showPage('client-violations',this)">
+<span data-ar="">نظام مخالفات العملاء والعقوبات</span>
+<span data-en="">Client Violations &amp; Penalties</span>
+</div>
+</div>
+</nav>
+<!-- END SIDEBAR -->
+<!-- MAIN -->
+<main class="main" id="mainContent" role="main">
+<!-- ================================================================
+     PAGE 1 — GENERAL TERMS
+     ================================================================ -->
+<div class="policy-section active" id="page-general">
+<div class="section-header">
+<span class="badge cat-general"><span data-ar="">سياسة عامة</span><span data-en="">General Policy</span></span>
+<h2><span data-ar="">شروط وأحكام منصة الدفع المباشر P2P</span><span data-en="">P2P Direct Payment Platform — Terms and Conditions</span></h2>
+<p class="section-description"><span class="d-block" data-ar="">الإطار العام المنظم لاستخدام منصة الدفع المباشر P2P التابعة لشركة INZO، بما يشمل التعاريف، نطاق الخدمة، أنواع الحسابات، قواعد فتح الطلبات، وسائل الدفع، الحجز المالي، التحقق، الأمان، حدود المسؤولية، وصلاحيات الشركة.</span><span class="d-block" data-en="">
+
+The general regulatory framework governing the use of INZO's P2P Direct Payment Platform, covering definitions, scope of service, account types, order rules, payment methods, escrow, verification, security, liability limitations, and company authority.
+</span></p>
+</div>
+<div class="intro-block"><span class="d-block" data-ar="">
+        تخضع هذه الشروط والأحكام لاستخدام منصة الدفع المباشر P2P التابعة لشركة INZO، وتشكل المرجع العام المنظم لجميع ما يتعلق بإنشاء الحسابات، واستخدام المنصة، وفتح الطلبات، وتنفيذ عمليات الإيداع والسحب، وتشغيل العروض، ورفع الإثباتات، وطلب الاعتراضات والمراجعات، وإجراءات التحقق، والتدابير الوقائية والتنظيمية التي تتخذها الشركة لحماية جميع الأطراف.<br/><br/>
+        وباستخدام المنصة، يقر المستخدم بأنه قرأ هذه الشروط وفهمها ووافق على الالتزام بها، كما يوافق على جميع السياسات والضوابط المرتبطة بها والمنشورة على الموقع، وتعد تلك السياسات جزءًا مكملاً لهذه الشروط وتقرأ بالاقتران معها.<br/><br/>
+        وفي حال وجود أي تعارض بين هذه الشروط وبين أي سياسة تشغيلية أو تنظيمية خاصة بمنصة P2P، تكون الغلبة لما تقرره الشركة في حدود تنظيم وتشغيل المنصة، وحماية الطلبات، وحفظ حقوق الأطراف، وضمان استقرار بيئة الاستخدام.
+      </span><span class="d-block" data-en="">
+
+
+      These Terms and Conditions govern the use of INZO's P2P Direct Payment Platform and constitute the general regulatory reference for all matters relating to account creation, platform use, order initiation, execution of deposit and withdrawal transactions, offer management, submission of proof of transfer, filing of objections and reviews, verification procedures, and the preventive and regulatory measures taken by the Company to protect all parties.<br/><br/>
+      By using the Platform, the User acknowledges that they have read, understood, and agreed to be bound by these Terms. The User further agrees to all associated policies and controls published on the website, which are considered an integral part of these Terms and are to be read in conjunction with them.<br/><br/>
+      In the event of any conflict between these Terms and any operational or regulatory policy specific to the P2P Platform, the Company's determination shall prevail, within the scope of regulating and operating the Platform, protecting orders, preserving the rights of all parties, and ensuring a stable usage environment.
+    
+</span></div>
+<!-- Art. 1 Definitions -->
+<div class="article-block open">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">1</span><span data-ar="">التعاريف</span><span data-en="">Definitions</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">1.1</span><div class="clause-text"><div class="d-block" data-ar=""><strong>المنصة:</strong> منصة الدفع المباشر P2P التابعة لشركة INZO.</div><div class="d-block" data-en=""><strong>Platform:</strong> The P2P Direct Payment Platform operated by INZO.</div></div></div>
+<div class="clause"><span class="clause-num">1.2</span><div class="clause-text"><div class="d-block" data-ar=""><strong>الشركة:</strong> شركة INZO أو الجهة التابعة لها التي تدير وتشرف على منصة P2P.</div><div class="d-block" data-en=""><strong>Company:</strong> INZO or its affiliated entity that manages and supervises the P2P Platform.</div></div></div>
+<div class="clause"><span class="clause-num">1.3</span><div class="clause-text"><div class="d-block" data-ar=""><strong>العميل:</strong> المستخدم الذي يستخدم المنصة لتنفيذ عمليات الإيداع أو السحب المرتبطة بحسابه.</div><div class="d-block" data-en=""><strong>Client:</strong> The user who utilizes the Platform to execute deposit or withdrawal transactions linked to their account.</div></div></div>
+<div class="clause"><span class="clause-num">1.4</span><div class="clause-text"><div class="d-block" data-ar=""><strong>التاجر:</strong> المستخدم المعتمد من الشركة لتقديم عروض الإيداع والسحب وتنفيذ الطلبات مع العملاء عبر المنصة.</div><div class="d-block" data-en=""><strong>Merchant:</strong> A user approved by the Company to provide deposit and withdrawal offers and execute orders with clients through the Platform.</div></div></div>
+<div class="clause"><span class="clause-num">1.5</span><div class="clause-text"><div class="d-block" data-ar=""><strong>الطلب:</strong> العملية التي يتم إنشاؤها داخل المنصة بين العميل والتاجر، سواء كانت عملية إيداع أو سحب.</div><div class="d-block" data-en=""><strong>Order:</strong> A transaction created within the Platform between the Client and the Merchant, whether a deposit or a withdrawal.</div></div></div>
+<div class="clause"><span class="clause-num">1.6</span><div class="clause-text"><div class="d-block" data-ar=""><strong>الإيداع:</strong> العملية التي يقوم فيها العميل بتحويل مبلغ محلي إلى التاجر مقابل حصوله على الرصيد الرقمي داخل محفظته على المنصة.</div><div class="d-block" data-en=""><strong>Deposit:</strong> A transaction whereby the Client transfers a local currency amount to the Merchant in exchange for receiving digital balance in their Platform wallet.</div></div></div>
+<div class="clause"><span class="clause-num">1.7</span><div class="clause-text"><div class="d-block" data-ar=""><strong>السحب:</strong> العملية التي يطلب فيها العميل استلام مبلغ محلي من التاجر مقابل تحويل الرصيد الرقمي المحجوز لصالح التاجر بعد إتمام العملية.</div><div class="d-block" data-en=""><strong>Withdrawal:</strong> A transaction whereby the Client requests receipt of a local currency amount from the Merchant in exchange for transferring escrowed digital balance to the Merchant upon completion.</div></div></div>
+<div class="clause"><span class="clause-num">1.8</span><div class="clause-text"><div class="d-block" data-ar=""><strong>العرض:</strong> الإعلان الذي ينشئه التاجر داخل المنصة، ويتضمن السعر، ونسبة الربح، وطريقة الدفع، والحدود الدنيا والعليا، والملاحظات، وأي بيانات إضافية مرتبطة بالتنفيذ.</div><div class="d-block" data-en=""><strong>Offer:</strong> The listing created by the Merchant on the Platform, specifying the exchange rate, profit margin, payment method, minimum and maximum limits, notes, and any additional execution-related data.</div></div></div>
+<div class="clause"><span class="clause-num">1.9</span><div class="clause-text"><div class="d-block" data-ar=""><strong>إثبات التحويل:</strong> أي صورة أو فيديو أو سجل أو كشف أو مستند يستخدم لإثبات تنفيذ التحويل المالي.</div><div class="d-block" data-en=""><strong>Proof of Transfer:</strong> Any screenshot, video, log, statement, or document used to evidence the execution of a financial transfer.</div></div></div>
+<div class="clause"><span class="clause-num">1.10</span><div class="clause-text"><div class="d-block" data-ar=""><strong>الطرف الثالث:</strong> أي شخص أو حساب أو محفظة أو وسيلة دفع لا تعود ملكيتها مباشرة إلى صاحب الحساب المسجل على المنصة.</div><div class="d-block" data-en=""><strong>Third Party:</strong> Any person, account, wallet, or payment method not directly owned by the registered account holder on the Platform.</div></div></div>
+<div class="clause"><span class="clause-num">1.11</span><div class="clause-text"><div class="d-block" data-ar=""><strong>الاعتراض / المناشدة:</strong> طلب مراجعة يتعلق بنزاع أو مشكلة مرتبطة بطلب قائم أو منتهي أو محل مراجعة.</div><div class="d-block" data-en=""><strong>Objection / Appeal:</strong> A review request relating to a dispute or issue associated with an active, completed, or under-review order.</div></div></div>
+<div class="clause"><span class="clause-num">1.12</span><div class="clause-text"><div class="d-block" data-ar=""><strong>حجز الرصيد:</strong> الحجز المؤقت للرصيد أو القيمة المرتبطة بالطلب إلى حين اكتمال التنفيذ أو الفصل في النزاع.</div><div class="d-block" data-en=""><strong>Escrow / Balance Hold:</strong> The temporary hold placed on the balance or value associated with an order pending completion of execution or resolution of a dispute.</div></div></div>
+<div class="clause"><span class="clause-num">1.13</span><div class="clause-text"><div class="d-block" data-ar=""><strong>التحرير:</strong> الإفراج عن الرصيد المحجوز للطرف المستحق بعد اكتمال شروط العملية أو صدور قرار من الشركة.</div><div class="d-block" data-en=""><strong>Release:</strong> The release of escrowed balance to the entitled party upon fulfillment of transaction conditions or issuance of a Company decision.</div></div></div>
+<div class="clause"><span class="clause-num">1.14</span><div class="clause-text"><div class="d-block" data-ar=""><strong>المحفظة:</strong> محفظة P2P الداخلية المخصصة لاستقبال وتسليم الرصيد المستخدم في عمليات المنصة.</div><div class="d-block" data-en=""><strong>Wallet:</strong> The internal P2P wallet designated for receiving and delivering the balance used in Platform transactions.</div></div></div>
+<div class="clause"><span class="clause-num">1.15</span><div class="clause-text"><div class="d-block" data-ar=""><strong>حساب التداول:</strong> الحساب المرتبط بالمستخدم خارج محفظة P2P والذي تتم بينه وبين محفظة P2P التحويلات الداخلية وفق النظام المعتمد.</div><div class="d-block" data-en=""><strong>Trading Account:</strong> The user's account external to the P2P Wallet, between which internal transfers to and from the P2P Wallet are conducted in accordance with the approved system.</div></div></div>
+<div class="clause"><span class="clause-num">1.16</span><div class="clause-text"><div class="d-block" data-ar=""><strong>وسيلة الدفع:</strong> البنك أو المحفظة أو الوسيلة المالية المحلية أو الرقمية المعتمدة داخل العرض أو داخل الطلب.</div><div class="d-block" data-en=""><strong>Payment Method:</strong> The bank, e-wallet, or local/digital financial instrument approved for use within an offer or order.</div></div></div>
+<div class="clause"><span class="clause-num">1.17</span><div class="clause-text"><div class="d-block" data-ar=""><strong>التحقق:</strong> أي إجراء تطلبه الشركة لتأكيد الهوية أو صحة التحويل أو سلامة العملية أو صحة الأدلة المقدمة.</div><div class="d-block" data-en=""><strong>Verification:</strong> Any procedure required by the Company to confirm identity, validate a transfer, ensure transaction integrity, or verify the accuracy of submitted evidence.</div></div></div>
+</div>
+</div>
+<!-- Art. 2 -->
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">2</span><span data-ar="">نطاق الخدمة</span><span data-en="">Scope of Service</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">2.1</span><div class="clause-text"><div class="d-block" data-ar="">تتيح المنصة تنفيذ عمليات السحب والإيداع بين العملاء والتجار باستخدام وسائل الدفع المحلية أو المعتمدة داخل الدولة أو المنطقة التي تتيح فيها الشركة هذه الخدمة.</div><div class="d-block" data-en="">The Platform enables the execution of deposit and withdrawal transactions between Clients and Merchants using local or approved payment methods within the country or region where the Company makes such services available.</div></div></div>
+<div class="clause"><span class="clause-num">2.2</span><div class="clause-text"><div class="d-block" data-ar="">لا يجوز استخدام المنصة كبديل عن المؤسسات المصرفية أو كقناة عامة لتحويل الأموال لأغراض شخصية أو تجارية لا ترتبط بالغرض المعتمد داخل النظام.</div><div class="d-block" data-en="">The Platform may not be used as a substitute for banking institutions or as a general money transfer channel for personal or commercial purposes unrelated to the System's approved purpose.</div></div></div>
+<div class="clause"><span class="clause-num">2.3</span><div class="clause-text"><div class="d-block" data-ar="">تقتصر الخدمة على الاستخدام المشروع فقط، ويحظر استخدام المنصة في أي نشاط مخالف للقانون أو لهذه الشروط أو لأي سياسة معلنة من الشركة.</div><div class="d-block" data-en="">The service is restricted to lawful use only. Use of the Platform for any activity that violates applicable law, these Terms, or any published Company policy is strictly prohibited.</div></div></div>
+<div class="clause"><span class="clause-num">2.4</span><div class="clause-text"><div class="d-block" data-ar="">تقدم المنصة دورًا تنظيميًا وتقنيًا في إدارة الطلبات وحجز الرصيد ومراجعة النزاعات، لكنها لا تعد طرفًا مباشرًا في خدمة الدفع المحلية ذاتها ولا تضمن أداء مزوديها الخارجيين.</div><div class="d-block" data-en="">The Platform provides a regulatory and technical role in managing orders, holding funds in escrow, and reviewing disputes; however, it is not a direct party to the local payment service itself and does not guarantee the performance of external payment providers.</div></div></div>
+</div>
+</div>
+<!-- Art. 3 -->
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">3</span><span data-ar="">أنواع الحسابات</span><span data-en="">Account Types</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">3.1</span><div class="clause-text"><div class="d-block" data-ar=""><strong>حساب التاجر P2P:</strong> حساب مخصص لتقديم عروض الإيداع والسحب وتنفيذ الطلبات مع العملاء عبر المنصة، ولا يجوز استخدامه للتداول المباشر في الأسواق المالية العالمية.</div><div class="d-block" data-en=""><strong>P2P Merchant Account:</strong> An account designated exclusively for providing deposit and withdrawal offers and executing orders with clients through the Platform. It may not be used for direct trading in global financial markets.</div></div></div>
+<div class="clause"><span class="clause-num">3.2</span><div class="clause-text"><div class="d-block" data-ar=""><strong>حساب العميل P2P:</strong> حساب مخصص لعمليات السحب والإيداع فقط بين الحساب التداولي الحقيقي ومنصة P2P، ولا يتيح إنشاء عروض أو العمل كتاجر.</div><div class="d-block" data-en=""><strong>P2P Client Account:</strong> An account designated solely for deposit and withdrawal operations between the actual trading account and the P2P Platform. It does not permit the creation of offers or operation as a merchant.</div></div></div>
+<div class="clause"><span class="clause-num">3.3</span><div class="clause-text"><div class="d-block" data-ar=""><strong>الحساب التداولي الحقيقي:</strong> حساب مستقل مخصص للتداول في الأسواق العالمية، ويتم ربطه بحساب أو محفظة P2P لإجراء التحويلات الداخلية وفق الإجراءات المعتمدة.</div><div class="d-block" data-en=""><strong>Live Trading Account:</strong> A standalone account designated for trading in global markets, linked to a P2P account or wallet to facilitate internal transfers in accordance with the approved procedures.</div></div></div>
+</div>
+</div>
+<!-- Art. 4 -->
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">4</span><span data-ar="">أهلية الاستخدام</span><span data-en="">Eligibility</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">4.1</span><div class="clause-text"><div class="d-block" data-ar="">يشترط لاستخدام المنصة أن يكون المستخدم بالغًا سن الرشد القانوني في دولته أو ولايته، وبما لا يقل عن 18 عامًا.</div><div class="d-block" data-en="">Use of the Platform requires that the User has reached the legal age of majority in their country or jurisdiction, and is not less than 18 years of age.</div></div></div>
+<div class="clause"><span class="clause-num">4.2</span><div class="clause-text"><div class="d-block" data-ar="">يلتزم المستخدم بأن تكون جميع البيانات والمعلومات والمستندات المقدمة صحيحة ومكتملة وحديثة وغير مضللة.</div><div class="d-block" data-en="">The User undertakes that all submitted data, information, and documents are accurate, complete, current, and non-misleading.</div></div></div>
+<div class="clause"><span class="clause-num">4.3</span><div class="clause-text"><div class="d-block" data-ar="">تحتفظ الشركة بحق رفض أو تعليق أو تقييد أو إغلاق أي حساب إذا تبين لها وجود بيانات غير صحيحة، أو مستندات غير مقبولة، أو معلومات ناقصة، أو شبهة تلاعب أو تضليل أو استخدام غير مشروع.</div><div class="d-block" data-en="">The Company reserves the right to reject, suspend, restrict, or close any account if it determines that inaccurate data, unacceptable documents, incomplete information, or suspicion of manipulation, misrepresentation, or unlawful use is present.</div></div></div>
+</div>
+</div>
+<!-- Art. 5 -->
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">5</span><span data-ar="">إنشاء الحسابات</span><span data-en="">Account Creation</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">5.1</span><div class="clause-text"><div class="d-block" data-ar="">يجوز فتح حساب عميل P2P من خلال بوابة العملاء وفق الإجراءات المعتمدة داخل الموقع.</div><div class="d-block" data-en="">A P2P Client Account may be opened through the client portal in accordance with the approved procedures on the website.</div></div></div>
+<div class="clause"><span class="clause-num">5.2</span><div class="clause-text"><div class="d-block" data-ar="">يجوز فتح حساب تاجر P2P من خلال الصفحة المخصصة لذلك في الموقع، ويشترط لتفعيل الحساب ما يلي:
+            <ul class="sub-list">
+<li>استخدام بريد إلكتروني غير مستخدم سابقًا ضمن أي حساب آخر في الشركة.</li>
+<li>رفع الوثائق والمستندات المطلوبة.</li>
+<li>اجتياز التحقق والتوثيق المعتمد من الشركة.</li>
+<li>استكمال إجراءات التفعيل وفق ما تطلبه الشركة.</li>
+<li>إيداع حد أدنى قدره 1000 دولار أمريكي لتفعيل العمل على الحساب.</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+A P2P Merchant Account may be opened through the designated page on the website. Account activation requires the following:
+<ul class="sub-list">
+<li>Use of an email address not previously registered under any other account with the Company.</li>
+<li>Submission of the required documents and records.</li>
+<li>Successful completion of the Company's approved verification and authentication process.</li>
+<li>Completion of the activation procedures as required by the Company.</li>
+<li>Deposit of a minimum of USD 1,000 to activate the account for trading.</li>
+</ul>
+</div></div></div>
+<div class="clause"><span class="clause-num">5.3</span><div class="clause-text"><div class="d-block" data-ar="">يحق للشركة طلب أي تحقق إضافي أو مستندات أو مقابلات تحقق قبل اعتماد الحساب أو أثناء استمراره إذا رأت أن ذلك ضروري لحماية المنصة أو الأطراف أو الامتثال للضوابط الداخلية أو التنظيمية.</div><div class="d-block" data-en="">The Company is entitled to request additional verification, documents, or verification interviews before or during account operation if it deems such measures necessary for the protection of the Platform, all parties, or compliance with internal or regulatory controls.</div></div></div>
+</div>
+</div>
+<!-- Art. 6 -->
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">6</span><span data-ar="">قواعد فتح الطلبات</span><span data-en="">Order Initiation Rules</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">6.1</span><div class="clause-text"><div class="d-block" data-ar="">لا يجوز للعميل فتح أكثر من طلب واحد في الوقت نفسه، سواء كان طلب سحب أو إيداع، إلا إذا كان الطلب الأول في حالة اعتراض أو مناشدة معتمدة داخل النظام بما يسمح بذلك.</div><div class="d-block" data-en="">A Client may not open more than one order at the same time, whether a withdrawal or deposit order, unless the first order is in an approved dispute or appeal status within the System that permits such action.</div></div></div>
+<div class="clause"><span class="clause-num">6.2</span><div class="clause-text"><div class="d-block" data-ar="">يجوز للتاجر تشغيل أكثر من عرض وفتح أكثر من طلب في الوقت نفسه في حدود جاهزيته الفعلية، وبما لا يؤدي إلى تعطيل العملاء أو الإخلال بجودة التنفيذ أو سرعة الاستجابة.</div><div class="d-block" data-en="">A Merchant may operate multiple offers and open multiple simultaneous orders within the limits of their actual capacity, provided this does not result in client disruption, deterioration of execution quality, or delayed response times.</div></div></div>
+<div class="clause"><span class="clause-num">6.3</span><div class="clause-text"><div class="d-block" data-ar="">جميع الحقوق والالتزامات المعتمدة من الشركة ترتبط بالطلب المسجل داخل المنصة فقط، ولا يعتد بأي اتفاق أو تفاهم أو تعليمات خارجية إذا تعارضت مع بيانات الطلب أو سجلاته أو سياسات النظام.</div><div class="d-block" data-en="">All rights and obligations recognized by the Company are tied exclusively to the order registered within the Platform. Any external agreements, understandings, or instructions that conflict with the order's data, records, or system policies shall not be recognized.</div></div></div>
+<div class="clause"><span class="clause-num">6.4</span><div class="clause-text"><div class="d-block" data-ar="">لا يعد مجرد فتح الطلب أو قبوله دليلاً نهائيًا على اكتمال التنفيذ، وإنما يظل الطلب خاضعًا لبياناته وإثباتاته وحالة الحجز ومراجعة الشركة عند الحاجة.</div><div class="d-block" data-en="">The mere opening or acceptance of an order does not constitute conclusive evidence of completed execution. The order remains subject to its data, supporting evidence, escrow status, and Company review when necessary.</div></div></div>
+</div>
+</div>
+<!-- Art. 7 -->
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">7</span><span data-ar="">مراحل الطلبات</span><span data-en="">Order Stages</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">7.1</span><div class="clause-text"><div class="d-block" data-ar="">تمر الطلبات داخل المنصة، بحسب نوعها وسيرها، بحالات تشغيلية تشمل على سبيل المثال لا الحصر:
+            <ul class="sub-list">
+<li>تم الوضع</li>
+<li>تم الفتح / مقبول</li>
+<li>تم التحويل</li>
+<li>قيد الانتظار</li>
+<li>قيد الاعتراض</li>
+<li>تم الاكتمال</li>
+<li>تم الإلغاء</li>
+<li>منتهي الصلاحية</li>
+<li>تم الرفض</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+Orders within the Platform may pass through the following operational statuses, by way of example and not limitation:
+<ul class="sub-list">
+<li>Placed</li>
+<li>Opened / Accepted</li>
+<li>Transferred</li>
+<li>Pending</li>
+<li>Under Dispute</li>
+<li>Completed</li>
+<li>Cancelled</li>
+<li>Expired</li>
+<li>Rejected</li>
+</ul>
+</div></div></div>
+<div class="clause"><span class="clause-num">7.2</span><div class="clause-text"><div class="d-block" data-ar="">لا يؤدي انتهاء صلاحية الطلب أو إلغاؤه بذاته إلى إسقاط الحقوق إذا ثبت للشركة أن تحويلًا فعليًا قد تم من أحد الطرفين، ويحق لها في هذه الحالة مراجعة الوقائع والأدلة واتخاذ القرار المناسب لحفظ الحقوق.</div><div class="d-block" data-en="">The expiration or cancellation of an order does not in itself extinguish rights if the Company determines that an actual transfer was made by one of the parties.</div></div></div>
+<div class="clause"><span class="clause-num">7.3</span><div class="clause-text"><div class="d-block" data-ar="">تبقى الشركة صاحبة الصلاحية في تفسير الحالة الفعلية للطلب إذا تعارضت التسمية الظاهرة في النظام مع الوقائع المادية أو الأدلة المثبتة.</div><div class="d-block" data-en="">The Company retains authority to interpret the actual status of an order where the label displayed in the System conflicts with the material facts or substantiated evidence.</div></div></div>
+</div>
+</div>
+<!-- Art. 8 -->
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">8</span><span data-ar="">آلية الحجز المالي</span><span data-en="">Escrow Mechanism</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">8.1</span><div class="clause-text"><div class="d-block" data-ar="">في طلبات الإيداع، يتم حجز الرصيد من محفظة التاجر عند قبول الطلب لضمان حق العميل.</div><div class="d-block" data-en="">In deposit orders, balance is escrowed from the Merchant's wallet upon acceptance of the order to secure the Client's entitlement.</div></div></div>
+<div class="clause"><span class="clause-num">8.2</span><div class="clause-text"><div class="d-block" data-ar="">في طلبات السحب، يتم حجز الرصيد من محفظة العميل عند قبول الطلب لضمان حق التاجر.</div><div class="d-block" data-en="">In withdrawal orders, balance is escrowed from the Client's wallet upon acceptance of the order to secure the Merchant's entitlement.</div></div></div>
+<div class="clause"><span class="clause-num">8.3</span><div class="clause-text"><div class="d-block" data-ar="">يبقى الرصيد المحجوز قائمًا إلى حين:
+            <ul class="sub-list">
+<li>اكتمال الطلب</li>
+<li>إلغائه وفق ما تقرره المنصة</li>
+<li>أو الفصل في الاعتراض أو النزاع من قبل الشركة</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+The escrowed balance remains held until completion of the order, cancellation as determined by the Platform, or resolution of an objection or dispute by the Company.
+</div></div></div>
+<div class="clause"><span class="clause-num">8.4</span><div class="clause-text"><div class="d-block" data-ar="">عند اكتمال الطلب، يتم تحرير الرصيد للطرف المستحق وفق طبيعة العملية وسجلها.</div><div class="d-block" data-en="">Upon order completion, the escrowed balance is released to the entitled party in accordance with the nature of the transaction and its records.</div></div></div>
+<div class="clause"><span class="clause-num">8.5</span><div class="clause-text"><div class="d-block" data-ar="">عند الإلغاء أو انتهاء الصلاحية دون استحقاق نهائي، يعود الرصيد إلى مصدره ما لم تقرر الشركة خلاف ذلك استنادًا إلى الأدلة والوقائع المعتمدة لديها.</div><div class="d-block" data-en="">Upon cancellation or expiration without final entitlement, the balance is returned to its source unless the Company determines otherwise based on the evidence and facts available to it.</div></div></div>
+</div>
+</div>
+<!-- Art. 9 -->
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">9</span><span data-ar="">وسائل الدفع</span><span data-en="">Payment Methods</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">9.1</span><div class="clause-text"><div class="d-block" data-ar="">يجب استخدام وسائل الدفع المتاحة أو المعتمدة داخل المنصة فقط وفق ما هو ظاهر عند إنشاء الطلب أو تشغيل العرض.</div><div class="d-block" data-en="">Only payment methods available or approved within the Platform may be used, as displayed at the time of order creation or offer activation.</div></div></div>
+<div class="clause"><span class="clause-num">9.2</span><div class="clause-text"><div class="d-block" data-ar="">لا تعد الشركة مزودًا مباشرًا لخدمة الدفع المحلية ذاتها، ولا تنشئ أي علاقة تعاقدية مستقلة بينها وبين البنك أو المحفظة أو مزود الدفع الذي يستخدمه العميل أو التاجر.</div><div class="d-block" data-en="">The Company is not a direct provider of the local payment service itself and does not establish any independent contractual relationship with the bank, e-wallet, or payment provider used by the Client or Merchant.</div></div></div>
+<div class="clause"><span class="clause-num">9.3</span><div class="clause-text"><div class="d-block" data-ar="">تبقى مسؤولية استخدام وسيلة الدفع المحلية، والتأكد من صلاحيتها، والالتزام بشروطها وأي قيود متعلقة بها، على عاتق المستخدم الذي يستعملها.</div><div class="d-block" data-en="">Responsibility for the use of local payment methods, ensuring their validity, and complying with their terms and any associated restrictions, rests solely with the User employing them.</div></div></div>
+<div class="clause"><span class="clause-num">9.4</span><div class="clause-text"><div class="d-block" data-ar="">يحظر استخدام حسابات أو محافظ أو وسائل دفع تعود إلى طرف ثالث إلا وفق السياسة المعتمدة في المنصة، ومع مراعاة حدود مسؤولية الشركة في تلك الحالات.</div><div class="d-block" data-en="">The use of accounts, wallets, or payment methods belonging to a third party is prohibited except in accordance with the Platform's approved policy.</div></div></div>
+</div>
+</div>
+<!-- Art. 10 -->
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">10</span><span data-ar="">إثباتات التحويل</span><span data-en="">Proof of Transfer</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">10.1</span><div class="clause-text"><div class="d-block" data-ar="">يجب أن يكون إثبات التحويل واضحًا وصحيحًا وغير معدل وغير مضلل.</div><div class="d-block" data-en="">Proof of transfer must be clear, accurate, unaltered, and non-misleading.</div></div></div>
+<div class="clause"><span class="clause-num">10.2</span><div class="clause-text"><div class="d-block" data-ar="">يجب أن يتضمن الإثبات، متى كان ذلك متاحًا بحسب وسيلة الدفع المستخدمة، ما يكفي للتحقق من العملية، ومن ذلك على سبيل المثال:
+            <ul class="sub-list">
+<li>رقم الحساب أو المحفظة</li>
+<li>مبلغ التحويل</li>
+<li>تاريخ العملية</li>
+<li>أي بيانات أساسية أخرى تساعد على التحقق من الطلب وربطه بالتحويل</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+The proof must include sufficient information to verify the transaction, including account or wallet number, transfer amount, transaction date, and any other essential data linking the order to the transfer.
+</div></div></div>
+<div class="clause"><span class="clause-num">10.3</span><div class="clause-text"><div class="d-block" data-ar="">لا يعتد بإشعارات الرسائل النصية (SMS) وحدها بوصفها دليلًا كافيًا على استلام الأموال أو تحويلها.</div><div class="d-block" data-en="">SMS notifications alone are not considered sufficient evidence of receipt or transfer of funds.</div></div></div>
+<div class="clause"><span class="clause-num">10.4</span><div class="clause-text"><div class="d-block" data-ar="">يحق للشركة رفض أي إثبات غير واضح أو ناقص أو مشكوك بصحته، كما يحق لها طلب أدلة إضافية، بما في ذلك فيديو من سجل المحفظة أو كشف حركة أو أي وسيلة تحقق أخرى تراها مناسبة.</div><div class="d-block" data-en="">The Company is entitled to reject any proof that is unclear, incomplete, or of questionable authenticity, and may request additional evidence including screen recordings, transaction statements, or other verification methods.</div></div></div>
+</div>
+</div>
+<!-- Art. 11 -->
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">11</span><span data-ar="">قنوات التواصل الرسمية</span><span data-en="">Official Communication Channels</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">11.1</span><div class="clause-text"><div class="d-block" data-ar="">تعتمد الشركة القنوات الرسمية المعلنة على الموقع للتواصل مع المستخدمين بخصوص منصة P2P.</div><div class="d-block" data-en="">The Company relies on the official channels published on the website for all communications with Users regarding the P2P Platform.</div></div></div>
+<div class="clause"><span class="clause-num">11.2</span><div class="clause-text"><div class="d-block" data-ar="">كما تعتمد الشركة، متى أعلنت ذلك، قناة الدعم الرسمية الخاصة بقسم P2P على تطبيق تليجرام أو أي قناة رسمية أخرى.</div><div class="d-block" data-en="">The Company also relies, where officially announced, on the P2P department's official support channel on Telegram or any other designated official channel.</div></div></div>
+<div class="clause"><span class="clause-num">11.3</span><div class="clause-text"><div class="d-block" data-ar="">لا تتحمل الشركة أي مسؤولية عن أي تواصل يتم عبر معرفات أو مجموعات أو قنوات غير رسمية أو غير معتمدة.</div><div class="d-block" data-en="">The Company bears no responsibility for any communication conducted through unofficial or unauthorized accounts, groups, or channels.</div></div></div>
+<div class="clause"><span class="clause-num">11.4</span><div class="clause-text"><div class="d-block" data-ar="">لا يجوز استخدام محادثة الطلب لتبادل وسائل تواصل شخصية أو روابط أو دعوات أو أرقام بقصد إتمام التعامل خارج المنصة، ويحق للشركة اعتبار ذلك محاولة لتجاوز النظام واتخاذ الإجراء المناسب.</div><div class="d-block" data-en="">The order chat may not be used to exchange personal contact details, links, invitations, or phone numbers with the intent to conduct transactions outside the Platform.</div></div></div>
+</div>
+</div>
+<!-- Art. 12 -->
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">12</span><span data-ar="">التحقق</span><span data-en="">Verification</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">12.1</span><div class="clause-text"><div class="d-block" data-ar="">يحق للشركة طلب أي مستندات أو مقاطع فيديو أو وسائل تحقق إضافية في أي وقت لأغراض التوثيق أو التحقق من التحويلات أو حل النزاعات أو كشف الاحتيال أو معالجة المشكلات التقنية أو التشغيلية.</div><div class="d-block" data-en="">The Company is entitled to request any documents, video recordings, or additional verification measures at any time for purposes of authentication, transfer verification, dispute resolution, or fraud detection.</div></div></div>
+<div class="clause"><span class="clause-num">12.2</span><div class="clause-text"><div class="d-block" data-ar="">يلتزم العميل أو التاجر بالتعاون الكامل مع إجراءات التحقق وتقديم المطلوب خلال المدة المعقولة التي تحددها الشركة.</div><div class="d-block" data-en="">The Client or Merchant is obligated to fully cooperate with verification procedures and to submit the requested materials within the reasonable timeframe specified by the Company.</div></div></div>
+<div class="clause"><span class="clause-num">12.3</span><div class="clause-text"><div class="d-block" data-ar="">يجوز تعليق الطلب أو الحساب أو بعض وظائفه إلى حين استكمال التحقق المطلوب بصورة مرضية.</div><div class="d-block" data-en="">An order, account, or certain account functions may be suspended pending satisfactory completion of the required verification.</div></div></div>
+</div>
+</div>
+<!-- Art. 13 -->
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">13</span><span data-ar="">الأمان والامتثال</span><span data-en="">Security and Compliance</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">13.1</span><div class="clause-text"><div class="d-block" data-ar="">يجب تنفيذ جميع العمليات داخل المنصة فقط، وبالاستناد إلى بيانات الطلب والمحادثة الداخلية وسجلات النظام.</div><div class="d-block" data-en="">All transactions must be conducted exclusively within the Platform, based on the order's data, internal chat, and System records.</div></div></div>
+<div class="clause"><span class="clause-num">13.2</span><div class="clause-text"><div class="d-block" data-ar="">يحظر إتمام الصفقات خارج النظام أو الاتفاق على تحويل الأموال خارج الطلب المفتوح أو على خلاف ما هو مثبت داخله.</div><div class="d-block" data-en="">Completing transactions outside the System, or agreeing to transfer funds outside the open order, is strictly prohibited.</div></div></div>
+<div class="clause"><span class="clause-num">13.3</span><div class="clause-text"><div class="d-block" data-ar="">يحظر التحويل إلى بيانات غير موثقة داخل محادثة الطلب، كما يحظر الاعتماد على معلومات غير مثبتة أو لا يمكن ربطها بالطلب محل التنفيذ.</div><div class="d-block" data-en="">Transferring funds to payment details not documented within the order chat is prohibited.</div></div></div>
+<div class="clause"><span class="clause-num">13.4</span><div class="clause-text"><div class="d-block" data-ar="">تراقب الشركة الطلبات وسلوك المستخدمين بما يكفل الحفاظ على بيئة آمنة وعادلة ومستقرة لجميع الأطراف.</div><div class="d-block" data-en="">The Company monitors orders and user behavior to the extent necessary to maintain a safe, fair, and stable environment for all parties.</div></div></div>
+<div class="clause"><span class="clause-num">13.5</span><div class="clause-text"><div class="d-block" data-ar="">يحق للشركة اتخاذ تدابير وقائية مؤقتة، بما في ذلك إخفاء العروض، أو تعليق بعض وظائف الحساب، أو تعليق الطلب محل المراجعة، متى ظهر لها وجود خطر محتمل أو سلوك غير معتاد أو مؤشرات تدعو للاشتباه، وذلك إلى حين استكمال الفحص والتحقق.</div><div class="d-block" data-en="">The Company is entitled to take temporary preventive measures whenever it identifies a potential risk, unusual behavior, or indicators warranting suspicion.</div></div></div>
+</div>
+</div>
+<!-- Art. 14 -->
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">14</span><span data-ar="">الأنشطة المحظورة</span><span data-en="">Prohibited Activities</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">14.1</span><div class="clause-text"><div class="d-block" data-ar="">تقديم إثباتات مزورة أو مضللة أو معدلة.</div><div class="d-block" data-en="">Submitting forged, misleading, or altered proof of transfer.</div></div></div>
+<div class="clause"><span class="clause-num">14.2</span><div class="clause-text"><div class="d-block" data-ar="">الاتفاق أو التحويل خارج المنصة أو خارج الطلب.</div><div class="d-block" data-en="">Agreeing to or executing transfers outside the Platform or outside the order.</div></div></div>
+<div class="clause"><span class="clause-num">14.3</span><div class="clause-text"><div class="d-block" data-ar="">تعطيل الطلبات أو تركها عمدًا دون مبرر.</div><div class="d-block" data-en="">Intentionally disrupting or abandoning orders without justification.</div></div></div>
+<div class="clause"><span class="clause-num">14.4</span><div class="clause-text"><div class="d-block" data-ar="">إساءة استخدام الاعتراضات أو الحجز المالي.</div><div class="d-block" data-en="">Misusing the dispute or escrow mechanism.</div></div></div>
+<div class="clause"><span class="clause-num">14.5</span><div class="clause-text"><div class="d-block" data-ar="">السلوك غير المهني أو المسيء تجاه الطرف الآخر أو تجاه فريق الدعم.</div><div class="d-block" data-en="">Unprofessional or abusive conduct toward the counterparty or the support team.</div></div></div>
+<div class="clause"><span class="clause-num">14.6</span><div class="clause-text"><div class="d-block" data-ar="">استخدام المنصة في الاحتيال أو غسل الأموال أو أي نشاط غير مشروع.</div><div class="d-block" data-en="">Using the Platform for fraud, money laundering, or any other unlawful activity.</div></div></div>
+<div class="clause"><span class="clause-num">14.7</span><div class="clause-text"><div class="d-block" data-ar="">إنشاء أو استخدام أكثر من حساب على منصة P2P بقصد التحايل على السياسات أو تجاوز القيود أو إخفاء السجل السابق أو التأثير غير المشروع على العروض أو التقييمات أو النزاعات.</div><div class="d-block" data-en="">Creating or using more than one P2P Platform account for the purpose of circumventing policies, bypassing restrictions, or concealing prior history.</div></div></div>
+</div>
+</div>
+<!-- Art. 15 -->
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">15</span><span data-ar="">صلاحيات الشركة</span><span data-en="">Company Authority</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">15.1</span><div class="clause-text"><div class="d-block" data-ar="">يحق للشركة وفق تقديرها المطلق وفي حدود حماية المنصة والأطراف اتخاذ أي من الإجراءات الآتية:
+            <ul class="sub-list">
+<li>تعليق أو تقييد أو إغلاق أي حساب</li>
+<li>إخفاء أو تعطيل أي عرض</li>
+<li>تجميد أو تعليق أو حجز الرصيد محل التحقيق</li>
+<li>رفض أو إلغاء أو تعديل أو مراجعة أي طلب</li>
+<li>فرض التحقق أو طلب الأدلة الإضافية</li>
+<li>إزالة أو تقييد أي عرض إذا تبين أنه غير قابل للتنفيذ بصورة طبيعية أو ينطوي على مخاطر تشغيلية أو سعرية غير معتادة أو يتضمن بيانات مضللة أو لا يعكس جاهزية فعلية من التاجر</li>
+<li>اتخاذ الإجراءات النظامية أو العقابية المناسبة وفق السياسات المعمول بها</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+The Company is entitled, at its absolute discretion, to take any of the following measures:
+<ul class="sub-list">
+<li>Suspend, restrict, or close any account</li>
+<li>Hide or disable any offer</li>
+<li>Freeze, suspend, or hold any balance under investigation</li>
+<li>Reject, cancel, modify, or review any order</li>
+<li>Impose verification requirements or request additional evidence</li>
+<li>Remove or restrict any offer found to be unexecutable or carrying unusual risks</li>
+<li>Take appropriate regulatory or disciplinary measures</li>
+</ul>
+</div></div></div>
+<div class="clause"><span class="clause-num">15.2</span><div class="clause-text"><div class="d-block" data-ar="">لا تتحمل الشركة المسؤولية عن أي تأخير ينشأ بسبب التحقق أو المنازعات أو الاشتباه أو نقص الأدلة أو عدم تعاون أحد الأطراف.</div><div class="d-block" data-en="">The Company shall not be held liable for any delays arising from verification procedures, disputes, suspicion, insufficient evidence, or failure of any party to cooperate.</div></div></div>
+</div>
+</div>
+<!-- Art. 16 -->
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">16</span><span data-ar="">حدود مسؤولية الشركة</span><span data-en="">Limitation of Liability</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">16.1</span><div class="clause-text"><div class="d-block" data-ar="">تلتزم الشركة باتخاذ ما تراه معقولًا من إجراءات لحماية المنصة والأطراف، إلا أنها لا تتحمل المسؤولية عن أي خسائر أو أضرار أو تأخيرات تنتج بصورة مباشرة أو غير مباشرة عن أي من الحالات الآتية:
+            <ul class="sub-list">
+<li>إدخال بيانات خاطئة من العميل أو التاجر</li>
+<li>التحويل إلى جهة خاطئة أو إلى بيانات غير موثقة داخل الطلب</li>
+<li>استخدام وسيلة دفع غير صحيحة أو غير صالحة أو متوقفة</li>
+<li>قبول العميل أو التاجر التعامل مع طرف ثالث</li>
+<li>أعطال أو تأخير أو قيود صادرة عن البنوك أو المحافظ أو مزودي خدمات الدفع المحليين</li>
+<li>الاعتماد على رسائل SMS أو أي إشعارات غير كافية بدلًا من التحقق الفعلي</li>
+<li>عدم التعاون مع التحقق أو التأخر في تقديم الأدلة</li>
+<li>أي تواصل أو اتفاق أو تنفيذ يتم خارج المنصة أو خارج القنوات الرسمية</li>
+<li>أي استخدام مخالف لهذه الشروط أو للسياسات المرتبطة بها</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+The Company shall not be liable for any losses, damages, or delays arising from any of the following:
+<ul class="sub-list">
+<li>Entry of incorrect data by the Client or Merchant</li>
+<li>Transfer to an incorrect recipient or to payment details not documented within the order</li>
+<li>Use of an incorrect, invalid, or inactive payment method</li>
+<li>The Client's or Merchant's acceptance of a transaction involving a third party</li>
+<li>Failures, delays, or restrictions originating from banks or payment service providers</li>
+<li>Reliance on SMS messages or other insufficient notifications</li>
+<li>Failure to cooperate with verification or delay in submitting evidence</li>
+<li>Any communication, agreement, or execution conducted outside the Platform or official channels</li>
+<li>Any use in violation of these Terms or associated policies</li>
+</ul>
+</div></div></div>
+<div class="clause"><span class="clause-num">16.2</span><div class="clause-text"><div class="d-block" data-ar="">لا تتحمل الشركة مسؤولية جودة أو سرعة أو استمرارية أو أمان خدمات مزودي الدفع المحليين، كما لا تعد ضامنة لالتزاماتهم أو لأنظمتهم أو إجراءاتهم الداخلية.</div><div class="d-block" data-en="">The Company bears no responsibility for the quality, speed, continuity, or security of local payment service providers.</div></div></div>
+<div class="clause"><span class="clause-num">16.3</span><div class="clause-text"><div class="d-block" data-ar="">لا تتحمل الشركة مسؤولية أي أضرار أو نتائج مترتبة على قرارات المستخدمين إذا تمت تلك القرارات على خلاف بيانات الطلب أو خلاف تعليمات المنصة أو خلاف متطلبات التحقق المعلنة.</div><div class="d-block" data-en="">The Company bears no liability for any damages or consequences arising from User decisions made contrary to the order's data or the Platform's instructions.</div></div></div>
+</div>
+</div>
+<!-- Art. 17 -->
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">17</span><span data-ar="">التعديلات</span><span data-en="">Amendments</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">17.1</span><div class="clause-text"><div class="d-block" data-ar="">تحتفظ الشركة بحق تعديل هذه الشروط أو أي جزء منها في أي وقت.</div><div class="d-block" data-en="">The Company reserves the right to amend these Terms or any part thereof at any time.</div></div></div>
+<div class="clause"><span class="clause-num">17.2</span><div class="clause-text"><div class="d-block" data-ar="">تصبح التعديلات نافذة من تاريخ نشرها على الموقع أو من تاريخ اعتمادها ضمن السياسات المعمول بها ما لم تعلن الشركة خلاف ذلك.</div><div class="d-block" data-en="">Amendments become effective from the date of their publication on the website or adoption within applicable policies, unless the Company announces otherwise.</div></div></div>
+</div>
+</div>
+</div>
+<!-- END PAGE 1 -->
+<!-- ================================================================
+     PAGE 2 — ORDER PROTECTION & ESCROW
+     ================================================================ -->
+<div class="policy-section" id="page-protection">
+<div class="section-header">
+<span class="badge cat-shared"><span data-ar="">سياسات مشتركة</span><span data-en="">Shared Policies</span></span>
+<h2><span data-ar="">سياسة حماية الطلبات وحجز الرصيد</span><span data-en="">Order Protection &amp; Balance Escrow Policy</span></h2>
+<p class="section-description"><span class="d-block" data-ar="">السياسة المنظمة لحجز الرصيد المرتبط بالطلبات داخل منصة P2P، وآلية حماية حقوق الأطراف أثناء التنفيذ أو عند وجود نزاع.</span><span class="d-block" data-en="">The policy governing the escrow of balances associated with orders on the P2P Platform and the mechanism for protecting the rights of all parties during execution or in the event of a dispute.</span></p>
+</div>
+<div class="intro-block"><span class="d-block" data-ar="">
+        تهدف هذه السياسة إلى تنظيم آلية حماية الطلبات داخل منصة P2P من خلال حجز الرصيد المرتبط بها، بما يضمن حماية العميل والتاجر، ويمنع التصرف النهائي في الأموال قبل تحقق شروط التنفيذ أو الفصل في النزاع.
+      </span><span class="d-block" data-en="">This Policy aims to regulate the order protection mechanism on the P2P Platform through balance escrow, ensuring the protection of both the Client and the Merchant, and preventing the final disposition of funds prior to fulfillment of the execution conditions or resolution of any dispute.</span></div>
+<div class="article-block open">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">1</span><span data-ar="">ماهية الحماية</span><span data-en="">Nature of Protection</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">1.1</span><div class="clause-text"><div class="d-block" data-ar="">تعتمد المنصة على آلية حجز مؤقت للرصيد أو لقيمة الطلب إلى حين اكتمال العملية أو البت في النزاع المتعلق بها.</div><div class="d-block" data-en="">The Platform relies on a mechanism for the temporary escrow of balance or order value pending completion of the transaction or resolution of any related dispute.</div></div></div>
+<div class="clause"><span class="clause-num">1.2</span><div class="clause-text"><div class="d-block" data-ar="">لا يعني الحجز نقل ملكية نهائية للطرف الآخر، وإنما يقصد به تعليق التصرف في الرصيد مؤقتًا لضمان تنفيذ العملية بصورة آمنة ومنظمة.</div><div class="d-block" data-en="">Escrow does not constitute a final transfer of ownership; rather, it represents a temporary suspension of the right to dispose of the balance, ensuring the transaction is executed safely and in an orderly manner.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">2</span><span data-ar="">متى يبدأ حجز الرصيد</span><span data-en="">When Escrow Commences</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">2.1</span><div class="clause-text"><div class="d-block" data-ar="">يبدأ الحجز عند قبول الطلب من الطرف المقابل بحسب نوع العملية.</div><div class="d-block" data-en="">Escrow commences upon acceptance of the order by the counterparty, depending on the type of transaction.</div></div></div>
+<div class="clause"><span class="clause-num">2.2</span><div class="clause-text"><div class="d-block" data-ar="">في طلبات الإيداع، يبدأ الحجز من محفظة التاجر.</div><div class="d-block" data-en="">In deposit orders, escrow is applied to the Merchant's wallet.</div></div></div>
+<div class="clause"><span class="clause-num">2.3</span><div class="clause-text"><div class="d-block" data-ar="">في طلبات السحب، يبدأ الحجز من محفظة العميل.</div><div class="d-block" data-en="">In withdrawal orders, escrow is applied to the Client's wallet.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">3</span><span data-ar="">متى يتم تحرير الرصيد</span><span data-en="">When Escrowed Balance Is Released</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">3.1</span><div class="clause-text"><div class="d-block" data-ar="">في طلبات الإيداع، يحرر الرصيد للعميل بعد ثبوت استلام التاجر للأموال فعليًا أو بعد صدور قرار من الشركة عند وجود نزاع.</div><div class="d-block" data-en="">In deposit orders, the escrowed balance is released to the Client upon confirmation of the Merchant's actual receipt of funds, or upon issuance of a Company decision in the event of a dispute.</div></div></div>
+<div class="clause"><span class="clause-num">3.2</span><div class="clause-text"><div class="d-block" data-ar="">في طلبات السحب، يحرر الرصيد للتاجر بعد ثبوت استلام العميل للأموال فعليًا أو بعد صدور قرار من الشركة عند وجود نزاع.</div><div class="d-block" data-en="">In withdrawal orders, the escrowed balance is released to the Merchant upon confirmation of the Client's actual receipt of funds, or upon issuance of a Company decision in the event of a dispute.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">4</span><span data-ar="">تعليق الحجز</span><span data-en="">Escrow Suspension</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">4.1</span><div class="clause-text"><div class="d-block" data-ar="">يجوز للشركة إبقاء الحجز قائمًا في حالات تشمل على سبيل المثال لا الحصر:
+            <ul class="sub-list">
+<li>وجود اعتراض أو مناشدة</li>
+<li>تعارض الأدلة</li>
+<li>الاشتباه في تزوير أو تلاعب</li>
+<li>استخدام طرف ثالث</li>
+<li>عدم تعاون أحد الأطراف</li>
+<li>وجود مشكلة تقنية أو تشغيلية أو تنظيمية تؤثر على القدرة على الفصل السليم في الطلب</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+The Company may maintain the escrow in force in circumstances including, by way of example: existence of an objection or appeal, conflicting evidence, suspicion of forgery or manipulation, third-party involvement, failure of any party to cooperate, or a technical or operational issue.
+</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">5</span><span data-ar="">إعادة الرصيد أو إلغاء الاستحقاق</span><span data-en="">Return of Balance or Cancellation of Entitlement</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">5.1</span><div class="clause-text"><div class="d-block" data-ar="">يجوز إعادة الرصيد إلى مصدره إذا ثبت للشركة:
+            <ul class="sub-list">
+<li>عدم حصول تحويل فعلي</li>
+<li>فشل العملية</li>
+<li>بطلان الطلب</li>
+<li>عدم استحقاق الطرف المطالب بالتحرير</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+The balance may be returned to its source if the Company determines: no actual transfer was made, transaction failure, order invalidity, or the party requesting release is not entitled to it.
+</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">6</span><span data-ar="">صلاحيات الشركة</span><span data-en="">Company Authority</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">6.1</span><div class="clause-text"><div class="d-block" data-ar="">يحق للشركة وفق ما تراه مناسبًا لحماية الأطراف أن تقوم بأي من الآتي:
+            <ul class="sub-list">
+<li>إبقاء الحجز قائمًا</li>
+<li>تمديد الحجز</li>
+<li>طلب أدلة إضافية</li>
+<li>تحرير الرصيد يدويًا</li>
+<li>إلغاء الطلب</li>
+<li>اتخاذ إجراء على الطرف المتسبب في النزاع أو التعطيل</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+The Company is entitled, as it deems appropriate for the protection of all parties, to: maintain the escrow, extend the escrow period, request additional evidence, manually release the balance, cancel the order, or take action against the party responsible for the dispute or disruption.
+</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">7</span><span data-ar="">إساءة استخدام النظام</span><span data-en="">System Abuse</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">7.1</span><div class="clause-text"><div class="d-block" data-ar="">تعد مخالفة جسيمة الحالات التي تشمل على سبيل المثال لا الحصر:
+            <ul class="sub-list">
+<li>فتح اعتراض كيدي</li>
+<li>الادعاء بعدم الاستلام رغم ثبوته</li>
+<li>الامتناع المتعمد عن تقديم الأدلة</li>
+<li>استخدام الحجز أو النزاع للضغط أو التعطيل أو الابتزاز</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+The following constitute serious violations: filing a bad-faith dispute, claiming non-receipt despite evidence of receipt, intentionally withholding evidence, or using the escrow or dispute mechanism for coercion, disruption, or extortion.
+</div></div></div>
+<div class="clause"><span class="clause-num">7.2</span><div class="clause-text"><div class="d-block" data-ar="">في هذه الحالات، يحق للشركة تحرير الرصيد للطرف المستحق واتخاذ الإجراء المناسب بحق الطرف المسيء.</div><div class="d-block" data-en="">In such cases, the Company is entitled to release the balance to the entitled party and take appropriate action against the offending party.</div></div></div>
+</div>
+</div>
+</div>
+<!-- ================================================================
+     PAGE 3 — DISPUTES & APPEALS
+     ================================================================ -->
+<div class="policy-section" id="page-disputes">
+<div class="section-header">
+<span class="badge cat-shared"><span data-ar="">سياسات مشتركة</span><span data-en="">Shared Policies</span></span>
+<h2><span data-ar="">سياسة المناشدات والنزاعات</span><span data-en="">Disputes &amp; Appeals Policy</span></h2>
+<p class="section-description"><span class="d-block" data-ar="">السياسة المنظمة لرفع الاعتراضات والمناشدات وآلية مراجعتها والأدلة المعتمدة والقرارات المتعلقة بالنزاعات بين العملاء والتجار.</span><span class="d-block" data-en="">The policy governing the submission of objections and appeals, the review process, accepted evidence, and decisions relating to disputes between Clients and Merchants.</span></p>
+</div>
+<div class="intro-block"><span class="d-block" data-ar="">
+        تهدف هذه السياسة إلى تنظيم آلية الاعتراضات والمناشدات داخل منصة P2P، وضمان مراجعة النزاعات بعدالة وسرعة، وحماية حقوق الأطراف استنادًا إلى الأدلة والسجلات النظامية والقرائن المرتبطة بسير الطلب.
+      </span><span class="d-block" data-en="">This Policy aims to regulate the mechanism for objections and appeals within the P2P Platform, ensure prompt and equitable review of disputes, and protect the rights of all parties based on evidence, system records, and indicators relating to the progression of the order.</span></div>
+<div class="article-block open">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">1</span><span data-ar="">حالات المناشدة</span><span data-en="">Grounds for Appeal</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">1.1</span><div class="clause-text"><div class="d-block" data-ar="">يجوز فتح مناشدة أو اعتراض عند وجود أي مشكلة حقيقية تؤثر على إتمام الطلب أو على استحقاق أحد الأطراف، بما في ذلك على سبيل المثال لا الحصر:
+            <ul class="sub-list">
+<li>النزاع حول استلام الأموال</li>
+<li>النزاع حول صحة الإثبات</li>
+<li>التحويل الزائد أو الناقص</li>
+<li>استخدام طرف ثالث</li>
+<li>التأخير غير المبرر</li>
+<li>الخطأ في بيانات التحويل</li>
+<li>أي مشكلة مؤثرة على إتمام الطلب بصورة صحيحة</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+An appeal or objection may be filed where a genuine issue exists that affects the completion of an order or the entitlement of any party, including: dispute over receipt of funds, dispute over validity of proof, overpayment or underpayment, third-party involvement, unjustified delay, error in transfer details, or any issue materially affecting proper completion of the order.
+</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">2</span><span data-ar="">الأدلة المعتمدة</span><span data-en="">Accepted Evidence</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">2.1</span><div class="clause-text"><div class="d-block" data-ar="">تعتمد الشركة عند مراجعة المناشدة على ما يتوافر لديها من أدلة، بما في ذلك:
+            <ul class="sub-list">
+<li>سجل الطلب داخل المنصة</li>
+<li>محادثة الطلب</li>
+<li>التوقيتات المرتبطة بالعملية</li>
+<li>إثباتات التحويل</li>
+<li>فيديوهات سجل المحفظة أو الحساب</li>
+<li>كشوف الحركة</li>
+<li>أي أدلة إضافية تراها مناسبة ومرتبطة بالحالة</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+When reviewing an appeal, the Company relies on: order records within the Platform, order chat history, transaction timestamps, proof of transfer documentation, wallet or account history screen recordings, transaction statements, and any additional evidence the Company deems relevant.
+</div></div></div>
+<div class="clause"><span class="clause-num">2.2</span><div class="clause-text"><div class="d-block" data-ar="">لا تلتزم الشركة بالاعتماد على نوع واحد من الأدلة، كما لا تلتزم بترجيح صورة أو مستند واحد إذا تبين لها أن هناك أدلة أقوى أو أوضح أو أكثر اتساقًا مع وقائع الطلب.</div><div class="d-block" data-en="">The Company is not bound to rely on a single type of evidence if it determines that stronger, clearer, or more consistent evidence exists.</div></div></div>
+<div class="clause"><span class="clause-num">2.3</span><div class="clause-text"><div class="d-block" data-ar="">للشركة سلطة تقدير القوة الثبوتية للأدلة وترتيبها ومدى اتصالها المباشر بالحالة محل النزاع.</div><div class="d-block" data-en="">The Company has the authority to assess the probative weight of evidence, rank it, and determine its direct relevance to the matter in dispute.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">3</span><span data-ar="">صلاحيات الشركة أثناء الاعتراض</span><span data-en="">Company Authority During Disputes</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">3.1</span><div class="clause-text"><div class="d-block" data-ar="">يحق للشركة تعليق الطلب أو الإبقاء على حجز الرصيد قائمًا طوال مدة المراجعة.</div><div class="d-block" data-en="">The Company is entitled to suspend the order or maintain the balance escrow throughout the review period.</div></div></div>
+<div class="clause"><span class="clause-num">3.2</span><div class="clause-text"><div class="d-block" data-ar="">يحق لها طلب مستندات أو وسائل تحقق إضافية من أي من الطرفين.</div><div class="d-block" data-en="">The Company may request additional documents or verification measures from either party.</div></div></div>
+<div class="clause"><span class="clause-num">3.3</span><div class="clause-text"><div class="d-block" data-ar="">يحق لها اتخاذ قرار بتحرير الرصيد أو إعادة الأموال أو تعليق الحساب أو اتخاذ أي إجراء تنظيمي مناسب بحسب نتيجة المراجعة.</div><div class="d-block" data-en="">The Company may decide to release the balance, return funds, suspend an account, or take any appropriate regulatory measure based on the outcome of the review.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">4</span><span data-ar="">القرار النهائي</span><span data-en="">Final Decision</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">4.1</span><div class="clause-text"><div class="d-block" data-ar="">يكون قرار الشركة بعد استكمال المراجعة ملزمًا للطرفين في حدود ما يتيحه النظام والسياسات المعتمدة.</div><div class="d-block" data-en="">The Company's decision upon completion of the review shall be binding on both parties within the limits permitted by the System and applicable policies.</div></div></div>
+<div class="clause"><span class="clause-num">4.2</span><div class="clause-text"><div class="d-block" data-ar="">لا تلتزم الشركة بالاعتماد على وجهة نظر أي طرف إذا تعارضت مع سجلات المنصة أو مع الأدلة التي تراها الشركة أكثر قوة أو أكثر اتصالًا بالطلب.</div><div class="d-block" data-en="">The Company is not bound by the position of any party where it conflicts with the Platform's records or with evidence the Company considers more probative.</div></div></div>
+</div>
+</div>
+</div>
+<!-- ================================================================
+     PAGE 4 — THIRD PARTY
+     ================================================================ -->
+<div class="policy-section" id="page-thirdparty">
+<div class="section-header">
+<span class="badge cat-shared"><span data-ar="">سياسات مشتركة</span><span data-en="">Shared Policies</span></span>
+<h2><span data-ar="">سياسة التعامل مع الطرف الثالث</span><span data-en="">Third-Party Transactions Policy</span></h2>
+<p class="section-description"><span class="d-block" data-ar="">الضوابط الخاصة بالتحويلات أو العمليات التي تتضمن طرفًا ثالثًا وحدود مسؤولية الشركة عنها وأثر ذلك على حماية الحقوق داخل المنصة.</span><span class="d-block" data-en="">Controls applicable to transfers or transactions involving a third party, the Company's liability limitations in such cases, and the impact on rights protection within the Platform.</span></p>
+</div>
+<div class="intro-block"><span class="d-block" data-ar="">
+        تنظم هذه السياسة الحالات التي تتضمن تحويلًا أو تعاملاً من طرف ثالث داخل منصة P2P، وتوضح حدود مسؤولية الشركة عنها.
+      </span><span class="d-block" data-en="">This Policy regulates situations involving a transfer or transaction from a third party within the P2P Platform and clarifies the Company's liability limitations in such cases.</span></div>
+<div class="article-block open">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">1</span><span data-ar="">القاعدة العامة</span><span data-en="">General Rule</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">1.1</span><div class="clause-text"><div class="d-block" data-ar="">الأصل أن تتم جميع التحويلات بين العميل والتاجر باستخدام وسائل دفع تعود ملكيتها مباشرة إلى الطرفين الأصليين المرتبطين بالطلب.</div><div class="d-block" data-en="">As a general rule, all transfers between the Client and the Merchant must be conducted using payment methods directly owned by the original parties to the order.</div></div></div>
+<div class="clause"><span class="clause-num">1.2</span><div class="clause-text"><div class="d-block" data-ar="">يجوز للتاجر وفق تقديره الخاص قبول أو رفض العمليات التي تتضمن طرفًا ثالثًا، وذلك بحسب شروطه الخاصة أو بحسب طبيعة العرض أو مستوى المخاطرة الذي يقبله.</div><div class="d-block" data-en="">A Merchant may, at their own discretion, accept or reject transactions involving a third party.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">2</span><span data-ar="">حدود مسؤولية الشركة</span><span data-en="">Limits of Company Liability</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">2.1</span><div class="clause-text"><div class="d-block" data-ar="">في حال قبول التاجر لعملية تتضمن طرفًا ثالثًا، فإن الشركة لا تتحمل المسؤولية عن أي تبعات قد تنشأ عن ذلك، بما في ذلك على سبيل المثال لا الحصر:
+            <ul class="sub-list">
+<li>التأخير في التحقق</li>
+<li>تعذر إثبات الحق</li>
+<li>النزاع على ملكية التحويل</li>
+<li>تعطل استرجاع المبلغ</li>
+<li>أي آثار قانونية أو مالية أو تشغيلية مرتبطة بالطرف الثالث</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+Where a Merchant accepts a transaction involving a third party, the Company shall not be liable for any consequences arising therefrom, including: delays in verification, difficulty in establishing entitlement, disputes over ownership of the transfer, difficulties in recovering the amount, or any legal, financial, or operational consequences related to the third party.
+</div></div></div>
+<div class="clause"><span class="clause-num">2.2</span><div class="clause-text"><div class="d-block" data-ar="">تكون قدرة الشركة على حماية الحقوق والفصل في النزاع أكثر قوة ووضوحًا عندما يكون التحويل بين الأطراف الأصلية المثبتة في الطلب دون تدخل طرف ثالث.</div><div class="d-block" data-en="">The Company's ability to protect rights and adjudicate disputes is significantly stronger and more definitive when the transfer is between the original parties identified in the order, without third-party involvement.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">3</span><span data-ar="">حق الشركة في المراجعة</span><span data-en="">Company's Right of Review</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">3.1</span><div class="clause-text"><div class="d-block" data-ar="">رغم أن قبول الطرف الثالث قد يكون راجعًا للتاجر، يحق للشركة في جميع الأحوال:
+            <ul class="sub-list">
+<li>طلب أدلة إضافية</li>
+<li>تعليق الطلب مؤقتًا</li>
+<li>طلب إعادة المبلغ إذا كان ذلك لازمًا بحسب الحالة</li>
+<li>رفض اعتماد الإثبات</li>
+<li>اتخاذ الإجراء المناسب على الحساب إذا تبين وجود مخاطرة أو تعارض أو شبهة احتيال</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+Notwithstanding that the acceptance of a third-party transaction may be at the Merchant's discretion, the Company retains the right to: request additional evidence, temporarily suspend the order, request return of the amount if required, refuse to accept the submitted proof, or take appropriate action against the account if risk or suspicion of fraud is identified.
+</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">4</span><span data-ar="">المسؤولية النهائية</span><span data-en="">Ultimate Responsibility</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">4.1</span><div class="clause-text"><div class="d-block" data-ar="">أي قبول لتحويل أو استلام أو إرسال من طرف ثالث يتم على مسؤولية الأطراف التي وافقت عليه.</div><div class="d-block" data-en="">Any acceptance of a transfer, receipt, or payment from a third party is conducted at the sole responsibility of the parties who agreed to it.</div></div></div>
+<div class="clause"><span class="clause-num">4.2</span><div class="clause-text"><div class="d-block" data-ar="">لا تلتزم الشركة بحماية هذه العمليات بالقدر نفسه الذي تلتزم به في العمليات الموثقة بين الأطراف الأصلية داخل الطلب.</div><div class="d-block" data-en="">The Company is not obligated to protect such transactions to the same degree as transactions documented between the original parties within the order.</div></div></div>
+</div>
+</div>
+</div>
+<!-- ================================================================
+     PAGE 5 — MERCHANT TERMS
+     ================================================================ -->
+<div class="policy-section" id="page-merchant-terms">
+<div class="section-header">
+<span class="badge cat-merchant"><span data-ar="">التجار</span><span data-en="">Merchants</span></span>
+<h2><span data-ar="">شروط وأحكام التجار في منصة P2P</span><span data-en="">Merchant Terms &amp; Conditions — P2P Platform</span></h2>
+<p class="section-description"><span class="d-block" data-ar="">الشروط والأحكام المنظمة لعمل التاجر داخل منصة P2P، بما يشمل فتح الحساب، تشغيل العروض، تنفيذ الطلبات، الالتزام بالضوابط التشغيلية والأمنية، والتعامل مع العملاء وفق سياسات المنصة.</span><span class="d-block" data-en="">The terms and conditions governing the operation of Merchants on the P2P Platform, covering account opening, offer management, order execution, compliance with operational and security controls, and client engagement in accordance with Platform policies.</span></p>
+</div>
+<div class="intro-block"><span class="d-block" data-ar="">
+        تقرأ هذه الشروط والأحكام بالاقتران مع شروط وأحكام منصة الدفع المباشر P2P والسياسات الأخرى ذات الصلة المنشورة على الموقع.<br/><br/>
+        وتنظم هذه الشروط والأحكام عمل التاجر داخل المنصة بما يشمل اعتماد الحساب وطبيعة استخدامه وتشغيل العروض وتنفيذ عمليات الإيداع والسحب والتواصل مع العملاء والالتزام بالأمان والتحقق.
+      </span><span class="d-block" data-en="">
+
+These Terms and Conditions are to be read in conjunction with the P2P Direct Payment Platform Terms and Conditions and any other related policies published on the website.<br/><br/>These Terms and Conditions govern the Merchant's operations on the Platform, including account approval, account usage, offer management, execution of deposit and withdrawal transactions, client communication, and compliance with security and verification requirements.
+</span></div>
+<div class="article-block open">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">1</span><span data-ar="">اعتماد حساب التاجر</span><span data-en="">Merchant Account Approval</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">1.1</span><div class="clause-text"><div class="d-block" data-ar="">لا يكتسب المستخدم صفة التاجر داخل منصة P2P إلا بعد اعتماد الشركة لحسابه واعتماده للتشغيل.</div><div class="d-block" data-en="">A User does not acquire Merchant status on the P2P Platform until the Company has formally approved their account and authorized it for operation.</div></div></div>
+<div class="clause"><span class="clause-num">1.2</span><div class="clause-text"><div class="d-block" data-ar="">يحق للشركة طلب مستندات أو تحقق إضافي قبل التفعيل أو بعده في أي وقت تراه مناسبًا.</div><div class="d-block" data-en="">The Company is entitled to request additional documents or verification before or after activation at any time it deems appropriate.</div></div></div>
+<div class="clause"><span class="clause-num">1.3</span><div class="clause-text"><div class="d-block" data-ar="">يتطلب تفعيل حساب التاجر إيداع حد أدنى مقداره 1000 دولار أمريكي.</div><div class="d-block" data-en="">Activation of a Merchant Account requires a minimum deposit of USD 1,000.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">2</span><span data-ar="">طبيعة حساب التاجر</span><span data-en="">Nature of the Merchant Account</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">2.1</span><div class="clause-text"><div class="d-block" data-ar="">حساب التاجر مخصص حصريًا لتقديم خدمات الإيداع والسحب داخل منصة P2P.</div><div class="d-block" data-en="">The Merchant Account is designated exclusively for providing deposit and withdrawal services on the P2P Platform.</div></div></div>
+<div class="clause"><span class="clause-num">2.2</span><div class="clause-text"><div class="d-block" data-ar="">لا يجوز استخدام حساب التاجر للتداول المباشر في الأسواق العالمية.</div><div class="d-block" data-en="">The Merchant Account may not be used for direct trading in global financial markets.</div></div></div>
+<div class="clause"><span class="clause-num">2.3</span><div class="clause-text"><div class="d-block" data-ar="">يستخدم التاجر حسابه لإدارة السيولة وتشغيل العروض وتنفيذ الطلبات وفق السياسات المعتمدة.</div><div class="d-block" data-en="">The Merchant uses their account for liquidity management, offer operation, and order execution in accordance with applicable policies.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">3</span><span data-ar="">تشغيل العروض</span><span data-en="">Offer Management</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">3.1</span><div class="clause-text"><div class="d-block" data-ar="">يجوز للتاجر تشغيل عروض إيداع أو عروض سحب أو كليهما بحسب رغبته وجاهزيته.</div><div class="d-block" data-en="">A Merchant may operate deposit offers, withdrawal offers, or both, subject to their preference and readiness.</div></div></div>
+<div class="clause"><span class="clause-num">3.2</span><div class="clause-text"><div class="d-block" data-ar="">يلتزم التاجر عند إنشاء العرض بتحديد البيانات الأساسية اللازمة بما في ذلك:
+            <ul class="sub-list">
+<li>نسبة الربح</li>
+<li>طريقة الدفع</li>
+<li>الحد الأدنى</li>
+<li>الحد الأقصى</li>
+<li>الملاحظات</li>
+<li>وإظهار العرض للمستخدمين بعد مراجعة التفاصيل</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+When creating an offer, the Merchant is obligated to specify: profit margin, payment method, minimum limit, maximum limit, and notes.
+</div></div></div>
+<div class="clause"><span class="clause-num">3.3</span><div class="clause-text"><div class="d-block" data-ar="">لا يجوز أن يقل الحد الأدنى للعرض عن الحد الذي تعتمده المنصة، ويكون الأصل التشغيلي المعتمد هو 50 دولارًا أمريكيًا ما لم تعلن الشركة خلاف ذلك مؤقتًا في العروض الخاصة أو الحملات التسويقية.</div><div class="d-block" data-en="">The minimum limit of an offer may not fall below the threshold approved by the Platform. The default operational minimum is USD 50, unless the Company temporarily announces otherwise.</div></div></div>
+<div class="clause"><span class="clause-num">3.4</span><div class="clause-text"><div class="d-block" data-ar="">يلتزم التاجر بعدم تشغيل العرض إلا عند الجاهزية الفعلية لاستقبال الطلبات وتنفيذها.</div><div class="d-block" data-en="">The Merchant is obligated not to activate an offer unless they are genuinely ready to receive and execute orders.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">4</span><span data-ar="">نسبة الربح وآلية التنافس</span><span data-en="">Profit Margin &amp; Competitive Ranking</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body"><div class="d-block" data-ar="">
+<div class="clause"><span class="clause-num">4.1</span><span class="clause-text">يحق للتاجر تحديد نسبة ربحه في العروض ضمن النطاق المعتمد داخل النظام.</span></div>
+<div class="clause"><span class="clause-num">4.2</span><span class="clause-text">تعتمد المنصة في أصلها التشغيلي على نطاق من +5% كحد أقصى إلى -5% كحد أدنى بحسب نوع العرض وإعداداته.</span></div>
+<div class="clause"><span class="clause-num">4.3</span><span class="clause-text">كلما ارتفعت نسبة الربح انخفضت تنافسية العرض في الغالب، وكلما انخفضت زادت فرص ظهور العرض بصورة أفضل للعملاء.</span></div>
+<div class="clause"><span class="clause-num">4.4</span><span class="clause-text">يعتمد ترتيب التجار في الأصل على:
+            <ul class="sub-list">
+<li>سعر الصرف</li>
+<li>ثم عدد الطلبات المكتملة</li>
+<li>ثم التقييمات الإيجابية</li>
+</ul>
+</span></div>
+<div class="clause"><span class="clause-num">4.5</span><span class="clause-text">لا تضمن الشركة للتاجر ترتيبًا ثابتًا أو ظهورًا دائمًا في المقدمة.</span></div>
+</div><div class="d-block" data-en="">
+<div class="clause"><span class="clause-num">4.1</span><div class="clause-text">The Merchant may determine the profit margin in offers within the approved range in the System.</div></div>
+<div class="clause"><span class="clause-num">4.2</span><div class="clause-text">The Platform's default operational framework relies on a range from +5% as the maximum to -5% as the minimum, depending on the offer type and its settings.</div></div>
+<div class="clause"><span class="clause-num">4.3</span><div class="clause-text">As the profit margin increases, the competitiveness of the offer will generally decrease, and as it decreases, the offer is more likely to achieve better visibility to Clients.</div></div>
+<div class="clause"><span class="clause-num">4.4</span><div class="clause-text">Merchant ranking is fundamentally based on:<ul class="sub-list"><li>Exchange rate</li><li>Then the number of completed orders</li><li>Then positive ratings</li></ul></div></div>
+<div class="clause"><span class="clause-num">4.5</span><div class="clause-text">The Company does not guarantee the Merchant a fixed ranking or permanent top placement.</div></div>
+</div></div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">5</span><span data-ar="">التزامات التاجر العامة</span><span data-en="">General Merchant Obligations</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">5.1</span><div class="clause-text"><div class="d-block" data-ar="">يلتزم التاجر بسرعة المتابعة والاستجابة والتنفيذ.</div><div class="d-block" data-en="">The Merchant is obligated to respond promptly and execute orders in a timely manner.</div></div></div>
+<div class="clause"><span class="clause-num">5.2</span><div class="clause-text"><div class="d-block" data-ar="">يلتزم التاجر باستخدام أسلوب مهني ومهذب في التواصل مع العملاء.</div><div class="d-block" data-en="">The Merchant is obligated to maintain a professional and courteous communication style with clients.</div></div></div>
+<div class="clause"><span class="clause-num">5.3</span><div class="clause-text"><div class="d-block" data-ar="">يلتزم التاجر التزامًا كاملًا بالسعر والشروط الظاهرة في العرض وقت فتح الطلب، ولا يجوز له طلب أي رسوم إضافية أو عمولات أو فروقات غير مذكورة صراحة في العرض.</div><div class="d-block" data-en="">The Merchant is fully bound by the price and terms displayed in the offer at the time the order is opened. Requesting additional fees, commissions, or differentials not expressly stated in the offer is strictly prohibited.</div></div></div>
+<div class="clause"><span class="clause-num">5.4</span><div class="clause-text"><div class="d-block" data-ar="">يلتزم التاجر بعدم مطالبة العميل بإتمام الصفقة خارج منصة P2P أو خارج بيانات الطلب.</div><div class="d-block" data-en="">The Merchant is prohibited from requesting the Client to complete the transaction outside the P2P Platform or outside the order's documented data.</div></div></div>
+<div class="clause"><span class="clause-num">5.5</span><div class="clause-text"><div class="d-block" data-ar="">يلتزم التاجر باستخدام القنوات الرسمية فقط للتواصل مع الشركة فيما يتعلق بالطلبات أو المشكلات المرتبطة بها.</div><div class="d-block" data-en="">The Merchant is obligated to use official channels exclusively when communicating with the Company regarding orders or related issues.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">6</span><span data-ar="">التزامات التاجر في طلبات الإيداع</span><span data-en="">Merchant Obligations in Deposit Orders</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body"><div class="d-block" data-ar="">
+<div class="clause"><span class="clause-num">6.1</span><span class="clause-text">عند قبول طلب الإيداع، يلتزم التاجر بما يلي:
+            <ul class="sub-list">
+<li>قبول الطلب داخل النظام</li>
+<li>إرسال بيانات الدفع الخاصة به داخل محادثة الطلب</li>
+<li>انتظار التحويل من العميل</li>
+<li>عدم التحرير إلا بعد التأكد الفعلي من وصول الأموال</li>
+<li>التأكد من رفع إثبات صحيح داخل الطلب</li>
+</ul>
+</span></div>
+<div class="clause"><span class="clause-num">6.2</span><span class="clause-text">يجب على التاجر ذكر رقم محفظته أو حسابه في كل طلب إيداع حتى لو كان العميل يعرفه مسبقًا، وذلك لضمان ربط التحويل بالطلب بصورة واضحة.</span></div>
+<div class="clause"><span class="clause-num">6.3</span><span class="clause-text">إذا كانت الإثباتات غير صحيحة أو ناقصة أو غير واضحة، فلا يجوز للتاجر التحرير قبل استكمال التحقق أو تدخل الشركة عند الحاجة.</span></div>
+<div class="clause"><span class="clause-num">6.4</span><span class="clause-text">إذا تم التحويل من طرف ثالث وكان التاجر قد قبل التعامل به، فتكون العملية على مسؤوليته من حيث تبعات الطرف الثالث، مع احتفاظ الشركة بحق المراجعة واتخاذ القرار المناسب.</span></div>
+<div class="clause"><span class="clause-num">6.5</span><span class="clause-text">في حال وجود تحويل زائد أو ناقص، يجب على التاجر إبلاغ العميل ورفع اعتراض عند الحاجة وعدم التصرف خارج الإجراء النظامي المعتمد.</span></div>
+</div><div class="d-block" data-en="">
+<div class="clause"><span class="clause-num">6.1</span><div class="clause-text">Upon accepting a deposit order, the Merchant shall:<ul class="sub-list"><li>Accept the order within the System</li><li>Send their payment details within the order chat</li><li>Wait for the transfer from the Client</li><li>Refrain from releasing the order until actual receipt of funds is confirmed</li><li>Ensure that valid proof is uploaded within the order</li></ul></div></div>
+<div class="clause"><span class="clause-num">6.2</span><div class="clause-text">The Merchant must state their wallet or account number in every deposit order even if the Client already knows it, in order to ensure that the transfer is clearly linked to the order.</div></div>
+<div class="clause"><span class="clause-num">6.3</span><div class="clause-text">If the submitted proof is incorrect, incomplete, or unclear, the Merchant may not release the order before verification is completed or the Company intervenes when necessary.</div></div>
+<div class="clause"><span class="clause-num">6.4</span><div class="clause-text">If the transfer is made by a third party and the Merchant has agreed to deal with it, the transaction shall remain the Merchant's responsibility as to the consequences of that third party involvement, without prejudice to the Company's right to review the matter and take the appropriate decision.</div></div>
+<div class="clause"><span class="clause-num">6.5</span><div class="clause-text">In the event of an overpayment or underpayment, the Merchant must notify the Client, raise an objection where necessary, and refrain from acting outside the approved System procedure.</div></div>
+</div></div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">7</span><span data-ar="">التزامات التاجر في طلبات السحب</span><span data-en="">Merchant Obligations in Withdrawal Orders</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body"><div class="d-block" data-ar="">
+<div class="clause"><span class="clause-num">7.1</span><span class="clause-text">عند قبول طلب السحب، يلتزم التاجر بما يلي:
+            <ul class="sub-list">
+<li>مراجعة بيانات الاستلام المرسلة من العميل داخل المحادثة</li>
+<li>تحويل المبلغ إلى البيانات الصحيحة</li>
+<li>رفع إثبات التحويل الصحيح</li>
+<li>عدم الادعاء بالتحويل دون تنفيذ فعلي</li>
+</ul>
+</span></div>
+<div class="clause"><span class="clause-num">7.2</span><span class="clause-text">لا يجوز للتاجر تحويل الأموال إلى بيانات موجودة في خانة الملاحظات فقط، ويجب الاعتماد حصريًا على البيانات المرسلة داخل محادثة الطلب.</span></div>
+<div class="clause"><span class="clause-num">7.3</span><span class="clause-text">إذا تأخر العميل في تحرير الدفع بعد الاستلام، يجوز للتاجر تقديم اعتراض ليتم مراجعة الحالة وفق الأدلة المتاحة.</span></div>
+<div class="clause"><span class="clause-num">7.4</span><span class="clause-text">إذا طلبت الشركة من التاجر إثباتًا إضافيًا، فيلتزم بتقديمه خلال الوقت المناسب الذي تحدده الشركة أو تراه معقولًا بحسب طبيعة الحالة.</span></div>
+</div><div class="d-block" data-en="">
+<div class="clause"><span class="clause-num">7.1</span><div class="clause-text">Upon accepting a withdrawal order, the Merchant shall:<ul class="sub-list"><li>Review the receipt details sent by the Client within the chat</li><li>Transfer the amount to the correct details</li><li>Upload valid proof of transfer</li><li>Refrain from claiming that a transfer was made without actual execution</li></ul></div></div>
+<div class="clause"><span class="clause-num">7.2</span><div class="clause-text">The Merchant may not transfer funds to details appearing only in the notes field, and must rely exclusively on the details sent within the order chat.</div></div>
+<div class="clause"><span class="clause-num">7.3</span><div class="clause-text">If the Client delays releasing the payment after receipt, the Merchant may submit an objection so that the case can be reviewed in light of the available evidence.</div></div>
+<div class="clause"><span class="clause-num">7.4</span><div class="clause-text">If the Company requests additional proof from the Merchant, the Merchant must provide it within the appropriate time specified by the Company or deemed reasonable according to the nature of the case.</div></div>
+</div></div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">8</span><span data-ar="">التحقق المالي والأمان</span><span data-en="">Financial Verification &amp; Security</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">8.1</span><div class="clause-text"><div class="d-block" data-ar="">يلتزم التاجر بالتحقق من استلام الأموال عبر التطبيق الرسمي أو كشف الرصيد أو الوسيلة المعتمدة وليس عبر رسائل SMS وحدها.</div><div class="d-block" data-en="">The Merchant is obligated to verify receipt of funds through the official application, account statement, or approved method — not through SMS messages alone.</div></div></div>
+<div class="clause"><span class="clause-num">8.2</span><div class="clause-text"><div class="d-block" data-ar="">يتحمل التاجر المسؤولية الكاملة عن أي خسائر أو نزاعات تنتج عن تحرير الطلب دون تحقق فعلي وكامل.</div><div class="d-block" data-en="">The Merchant bears full responsibility for any losses or disputes resulting from releasing an order without complete and actual verification of receipt.</div></div></div>
+<div class="clause"><span class="clause-num">8.3</span><div class="clause-text"><div class="d-block" data-ar="">عند وجود أي شك أو مشكلة أو تعارض في البيانات، يجب على التاجر إيقاف العملية فورًا وعدم التحرير حتى تتضح الحالة بشكل كامل أو تتدخل الشركة.</div><div class="d-block" data-en="">In the event of any doubt, issue, or data discrepancy, the Merchant must immediately halt the transaction and refrain from releasing the order until the situation is fully clarified or the Company intervenes.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">9</span><span data-ar="">المتابعة والتقييم</span><span data-en="">Monitoring &amp; Evaluation</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">9.1</span><div class="clause-text"><div class="d-block" data-ar="">تخضع حسابات التجار للمتابعة المستمرة وفق معايير الأداء والجودة والاستجابة والالتزام.</div><div class="d-block" data-en="">Merchant accounts are subject to ongoing monitoring in accordance with performance, quality, responsiveness, and compliance standards.</div></div></div>
+<div class="clause"><span class="clause-num">9.2</span><div class="clause-text"><div class="d-block" data-ar="">يحق للشركة توثيق مستوى التفاعل ومدد الاستجابة ونسبة الإكمال ونوعية الشكاوى وسجل المخالفات وأي مؤشرات أخرى تراها ذات صلة بحسن تشغيل الحساب.</div><div class="d-block" data-en="">The Company is entitled to document engagement levels, response times, completion rates, complaint types, violation records, and any other indicators it considers relevant to the proper operation of the account.</div></div></div>
+</div>
+</div>
+</div>
+<!-- ================================================================
+     PAGE 6 — MERCHANT OPERATIONS
+     ================================================================ -->
+<div class="policy-section" id="page-merchant-ops">
+<div class="section-header">
+<span class="badge cat-merchant"><span data-ar="">التجار</span><span data-en="">Merchants</span></span>
+<h2><span data-ar="">سياسة تشغيل التجار وطلبات الإيداع والسحب</span><span data-en="">Merchant Operations Policy — Deposit &amp; Withdrawal Orders</span></h2>
+<p class="section-description"><span class="d-block" data-ar="">السياسة التشغيلية الخاصة بإدارة عروض التاجر وتنفيذ طلبات الإيداع والسحب، بما يشمل خطوات العمل وإثباتات التحويل وأوقات الطلبات وقواعد التعامل داخل المنصة.</span><span class="d-block" data-en="">The operational policy governing the management of Merchant offers and the execution of deposit and withdrawal orders, including workflow steps, proof of transfer requirements, order timelines, and conduct rules within the Platform.</span></p>
+</div>
+<div class="article-block open">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">1</span><span data-ar="">السياسة العامة</span><span data-en="">General Policy</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body"><div class="d-block" data-ar="">
+<div class="clause"><span class="clause-num">1.1</span><span class="clause-text">يلتزم التاجر بتفعيل العروض فقط عند الجاهزية الفعلية للتنفيذ.</span></div>
+<div class="clause"><span class="clause-num">1.2</span><span class="clause-text">يلتزم التاجر بمتابعة الطلبات الواردة خلال الوقت المحدد وعدم تركها دون معالجة أو متابعة.</span></div>
+<div class="clause"><span class="clause-num">1.3</span><span class="clause-text">يلتزم التاجر بتنفيذ جميع الاتفاقات داخل المنصة فقط، ولا يعتد بأي تفاهم خارجي يخالف بيانات الطلب.</span></div>
+<div class="clause"><span class="clause-num">1.4</span><span class="clause-text">يعد قبول التاجر للطلب التزامًا فعليًا بتنفيذه وفق الشروط الظاهرة في العرض ووفق سياسات المنصة.</span></div>
+<div class="clause"><span class="clause-num">1.5</span><span class="clause-text">يبقى حق العميل داخل الطلب القائم أو المكتمل محفوظًا في حدود بيانات الطلب وسجلات المنصة وما تقرره الشركة عند المراجعة.</span></div>
+</div><div class="d-block" data-en="">
+<div class="clause"><span class="clause-num">1.1</span><div class="clause-text">The Merchant shall activate offers only when genuinely ready to execute them.</div></div>
+<div class="clause"><span class="clause-num">1.2</span><div class="clause-text">The Merchant shall monitor incoming orders within the specified time and must not leave them without processing or follow-up.</div></div>
+<div class="clause"><span class="clause-num">1.3</span><div class="clause-text">The Merchant shall carry out all agreements strictly within the Platform, and no external understanding conflicting with the order data shall be recognized.</div></div>
+<div class="clause"><span class="clause-num">1.4</span><div class="clause-text">The Merchant's acceptance of an order constitutes an actual commitment to execute it in accordance with the terms displayed in the offer and the Platform's policies.</div></div>
+<div class="clause"><span class="clause-num">1.5</span><div class="clause-text">The Client's right within an active or completed order remains protected within the limits of the order data, the Platform records, and the Company's determination upon review.</div></div>
+</div></div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">2</span><span data-ar="">تشغيل طلبات الإيداع</span><span data-en="">Processing Deposit Orders</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body"><div class="d-block" data-ar="">
+<div class="steps-block">
+<div class="step-item"><span class="step-num">1</span>يقبل التاجر الطلب داخل النظام.</div>
+<div class="step-item"><span class="step-num">2</span>يرسل رقم محفظته أو حسابه داخل محادثة الطلب.</div>
+<div class="step-item"><span class="step-num">3</span>ينتظر التحويل من العميل.</div>
+<div class="step-item"><span class="step-num">4</span>يتحقق من وصول الأموال فعليًا.</div>
+<div class="step-item"><span class="step-num">5</span>يراجع الإثبات المرفوع من العميل.</div>
+<div class="step-item"><span class="step-num">6</span>يحرر الطلب بعد التأكد الكامل من الاستلام.</div>
+</div>
+</div><div class="d-block" data-en="">
+<div class="steps-block">
+<div class="step-item"><span class="step-num">1</span>The Merchant accepts the order within the System.</div>
+<div class="step-item"><span class="step-num">2</span>The Merchant sends their wallet or account number within the order chat.</div>
+<div class="step-item"><span class="step-num">3</span>The Merchant awaits the transfer from the Client.</div>
+<div class="step-item"><span class="step-num">4</span>The Merchant verifies actual receipt of funds.</div>
+<div class="step-item"><span class="step-num">5</span>The Merchant reviews the proof of transfer submitted by the Client.</div>
+<div class="step-item"><span class="step-num">6</span>The Merchant releases the order after full confirmation of receipt.</div>
+</div>
+</div></div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">3</span><span data-ar="">تشغيل طلبات السحب</span><span data-en="">Processing Withdrawal Orders</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body"><div class="d-block" data-ar="">
+<div class="steps-block">
+<div class="step-item"><span class="step-num">1</span>يقبل التاجر الطلب داخل النظام.</div>
+<div class="step-item"><span class="step-num">2</span>يراجع بيانات العميل المرسلة داخل المحادثة.</div>
+<div class="step-item"><span class="step-num">3</span>يحول الأموال للعميل.</div>
+<div class="step-item"><span class="step-num">4</span>يرفع إثبات التحويل الصحيح داخل الطلب.</div>
+<div class="step-item"><span class="step-num">5</span>ينتظر تحرير العميل للدفعة بعد استلامه الأموال.</div>
+</div>
+</div><div class="d-block" data-en="">
+<div class="steps-block">
+<div class="step-item"><span class="step-num">1</span>The Merchant accepts the order within the System.</div>
+<div class="step-item"><span class="step-num">2</span>The Merchant reviews the Client's receipt details provided in the chat.</div>
+<div class="step-item"><span class="step-num">3</span>The Merchant transfers the funds to the Client.</div>
+<div class="step-item"><span class="step-num">4</span>The Merchant uploads valid proof of transfer within the order.</div>
+<div class="step-item"><span class="step-num">5</span>The Merchant awaits the Client's release of payment upon receipt of funds.</div>
+</div>
+</div></div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">4</span><span data-ar="">قواعد خاصة</span><span data-en="">Specific Rules</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">4.1</span><div class="clause-text"><div class="d-block" data-ar="">يمنع الضغط على زر "تم الدفع" أو ما يعادله قبل التحويل الفعلي.</div><div class="d-block" data-en="">Pressing the "Payment Confirmed" button or its equivalent prior to actual transfer is strictly prohibited.</div></div></div>
+<div class="clause"><span class="clause-num">4.2</span><div class="clause-text"><div class="d-block" data-ar="">يمنع الاعتماد على رسائل SMS وحدها كإثبات نهائي للاستلام.</div><div class="d-block" data-en="">Relying solely on SMS messages as conclusive proof of receipt is prohibited.</div></div></div>
+<div class="clause"><span class="clause-num">4.3</span><div class="clause-text"><div class="d-block" data-ar="">يمنع طلب إكمال الصفقة أو جزء منها خارج المنصة.</div><div class="d-block" data-en="">Requesting completion of a transaction or any part of it outside the Platform is prohibited.</div></div></div>
+<div class="clause"><span class="clause-num">4.4</span><div class="clause-text"><div class="d-block" data-ar="">يمنع الاعتماد على بيانات غير موثقة داخل محادثة الطلب.</div><div class="d-block" data-en="">Relying on data not documented within the order chat is prohibited.</div></div></div>
+<div class="clause"><span class="clause-num">4.5</span><div class="clause-text"><div class="d-block" data-ar="">يجب إيقاف الطلب فورًا عند وجود شك أو خلل أو تعارض في البيانات وعدم استكماله قبل اتضاح الحالة أو تدخل الشركة.</div><div class="d-block" data-en="">The order must be immediately halted in the event of any doubt, anomaly, or data discrepancy, and must not be completed until the situation is clarified or the Company intervenes.</div></div></div>
+</div>
+</div>
+</div>
+<!-- ================================================================
+     PAGE 7 — MERCHANT VIOLATIONS
+     ================================================================ -->
+<div class="policy-section" id="page-merchant-violations">
+<div class="section-header">
+<span class="badge cat-merchant"><span data-ar="">التجار</span><span data-en="">Merchants</span></span>
+<h2><span data-ar="">نظام مخالفات التجار والعقوبات</span><span data-en="">Merchant Violations &amp; Penalties System</span></h2>
+<p class="section-description"><span class="d-block" data-ar="">تصنيف المخالفات التشغيلية والسلوكية الخاصة بالتجار وآلية تطبيق الإجراءات والعقوبات بشكل تدريجي لحماية العملاء وضمان استقرار بيئة العمل على المنصة.</span><span class="d-block" data-en="">Classification of operational and behavioral violations specific to Merchants, and the mechanism for applying progressive disciplinary measures and penalties to protect Clients and ensure a stable operating environment on the Platform.</span></p>
+</div>
+<div class="intro-block"><span class="d-block" data-ar="">
+        يهدف هذا النظام إلى تنظيم مساءلة التجار وضبط جودة الأداء وحماية العملاء والمنصة من المخالفات التشغيلية والسلوكية، مع اعتماد التدرج في الإجراءات بما يحقق العدالة والوضوح ويحفظ استقرار بيئة العمل داخل المنصة.
+      </span><span class="d-block" data-en="">This System aims to establish Merchant accountability, maintain performance quality standards, and protect Clients and the Platform from operational and behavioral violations, while applying a graduated approach to disciplinary measures that ensures fairness, transparency, and stability within the Platform's operating environment.</span></div>
+<div class="article-block open">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">1</span><span data-ar="">الحالات التي تعد مخالفات تشغيلية</span><span data-en="">Operational Violations</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:0.75rem;"><span data-ar="">تعد الحالات الآتية مخالفات تشغيلية أو سلوكية على سبيل المثال لا الحصر:</span><span data-en="">The following cases shall be deemed operational or behavioral violations, including but not limited to:</span></p>
+<div class="clause"><span class="clause-num">1.1</span><div class="clause-text"><div class="d-block" data-ar="">تجاهل الطلب وعدم قبوله لأكثر من 15 دقيقة من وقت إنشائه إلى أن يقوم العميل بإلغائه.</div><div class="d-block" data-en="">Ignoring an order and failing to accept it for more than 15 minutes from the time of its creation until the Client cancels it.</div></div></div>
+<div class="clause"><span class="clause-num">1.2</span><div class="clause-text"><div class="d-block" data-ar="">قبول الطلب ثم عدم الرد على العميل وتركه حتى انتهاء مدة صلاحيته.</div><div class="d-block" data-en="">Accepting an order then failing to respond to the Client and allowing it to expire.</div></div></div>
+<div class="clause"><span class="clause-num">1.3</span><div class="clause-text"><div class="d-block" data-ar="">طلب التاجر من العميل إلغاء العملية بعد القبول بسبب عدم توفر الرصيد أو عدم الجاهزية رغم تفعيل العرض.</div><div class="d-block" data-en="">Requesting the Client to cancel the transaction after acceptance due to insufficient balance or unreadiness, despite the offer being active.</div></div></div>
+<div class="clause"><span class="clause-num">1.4</span><div class="clause-text"><div class="d-block" data-ar="">تفعيل العروض دون التواجد الفعلي على المنصة أو دون الاستعداد لتنفيذ الطلبات.</div><div class="d-block" data-en="">Activating offers without being actually present on the Platform or without being prepared to execute orders.</div></div></div>
+<div class="clause"><span class="clause-num">1.5</span><div class="clause-text"><div class="d-block" data-ar="">التأخير المتعمد في تنفيذ العملية بعد قيام العميل برفع إثبات التحويل في طلبات الإيداع أو بعد إرسال بيانات الاستلام في طلبات السحب دون سبب واضح ومقبول.</div><div class="d-block" data-en="">Intentionally delaying execution after the Client submits proof of transfer in deposit orders, or after sending receipt details in withdrawal orders, without a clear and acceptable reason.</div></div></div>
+<div class="clause"><span class="clause-num">1.6</span><div class="clause-text"><div class="d-block" data-ar="">قبول الطلب دون استكماله أو إتمامه مع عدم الرد على العميل.</div><div class="d-block" data-en="">Accepting an order without completing it while failing to respond to the Client.</div></div></div>
+<div class="clause"><span class="clause-num">1.7</span><div class="clause-text"><div class="d-block" data-ar="">أي سلوك غير مهني أو تجاوز تجاه العملاء دون مبرر.</div><div class="d-block" data-en="">Any unprofessional conduct or misconduct toward clients without justification.</div></div></div>
+<div class="clause"><span class="clause-num">1.8</span><div class="clause-text"><div class="d-block" data-ar="">التحرير دون التحقق الفعلي من استلام الأموال.</div><div class="d-block" data-en="">Releasing an order without actual verification of receipt of funds.</div></div></div>
+<div class="clause"><span class="clause-num">1.9</span><div class="clause-text"><div class="d-block" data-ar="">رفع إثبات غير صحيح أو ناقص أو مضلل.</div><div class="d-block" data-en="">Submitting inaccurate, incomplete, or misleading proof of transfer.</div></div></div>
+<div class="clause"><span class="clause-num">1.10</span><div class="clause-text"><div class="d-block" data-ar="">التحويل إلى بيانات غير موثقة داخل محادثة الطلب.</div><div class="d-block" data-en="">Transferring funds to details not documented within the order chat.</div></div></div>
+<div class="clause"><span class="clause-num">1.11</span><div class="clause-text"><div class="d-block" data-ar="">طلب أي رسوم إضافية أو شروط غير مدرجة في العرض بعد قبول الطلب.</div><div class="d-block" data-en="">Demanding additional fees or conditions not included in the offer after order acceptance.</div></div></div>
+<div class="clause"><span class="clause-num">1.12</span><div class="clause-text"><div class="d-block" data-ar="">مطالبة العميل بإكمال العملية أو جزء منها خارج منصة P2P.</div><div class="d-block" data-en="">Requiring the Client to complete the transaction or any part thereof outside the P2P Platform.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">2</span><span data-ar="">توثيق المخالفات</span><span data-en="">Violation Documentation</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">2.1</span><div class="clause-text"><div class="d-block" data-ar="">يحق للشركة توثيق أي مخالفة ضمن سجل التاجر كلما ثبت وقوعها.</div><div class="d-block" data-en="">The Company is entitled to document any violation in the Merchant's record each time it is established.</div></div></div>
+<div class="clause"><span class="clause-num">2.2</span><div class="clause-text"><div class="d-block" data-ar="">لا يقتصر تطبيق هذا النظام على الحالات المذكورة فقط، ويجوز للشركة توثيق أي سلوك مشابه يخل بسير العمل أو يضر بالعميل أو بالمنصة.</div><div class="d-block" data-en="">This System is not limited to the cases listed above. The Company may document any comparable conduct that disrupts operations or harms the Client or the Platform.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">3</span><span data-ar="">التدرج في العقوبات</span><span data-en="">Progressive Penalties</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">3.1</span><div class="clause-text"><div class="d-block" data-ar="">في حال تكرار المخالفات أكثر من ثلاث مرات خلال نفس الشهر، أو استمرار التاجر في عدم الالتزام بعد التنبيه، يجوز تطبيق الإجراءات التالية بشكل تدريجي:
+            <ul class="sub-list">
+<li>التنبيه</li>
+<li>تقييد العروض</li>
+<li>تعليق الحساب لمدة يوم واحد</li>
+<li>تعليق الحساب لمدة ثلاثة أيام</li>
+<li>تعليق الحساب لمدة أسبوع</li>
+<li>الحظر النهائي للحساب</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+Where violations are repeated more than three times within the same calendar month, or where the Merchant continues to be non-compliant following a warning, the following measures may be applied progressively: Warning, Offer restriction, Account suspension for one day, Account suspension for three days, Account suspension for one week, Permanent account ban.
+</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">4</span><span data-ar="">تطبيق العقوبة</span><span data-en="">Penalty Enforcement</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">4.1</span><div class="clause-text"><div class="d-block" data-ar="">لا تلتزم الشركة بتطبيق جميع مراحل التدرج حرفيًا أو بالترتيب ذاته إذا كانت المخالفة جسيمة أو متكررة بصورة واضحة.</div><div class="d-block" data-en="">The Company is not bound to apply every stage of the progressive scale where the violation is serious or clearly repetitive in nature.</div></div></div>
+<div class="clause"><span class="clause-num">4.2</span><div class="clause-text"><div class="d-block" data-ar="">يحق للشركة تشديد الإجراء مباشرة إذا تبين سوء نية أو تضرر أكثر من عميل أو وجود خطر على أمان المنصة أو انطوت الحالة على شبهة احتيال أو تلاعب.</div><div class="d-block" data-en="">The Company is entitled to escalate measures directly where bad faith is evident, multiple clients are affected, Platform security is at risk, or the case carries suspicion of fraud or manipulation.</div></div></div>
+<div class="clause"><span class="clause-num">4.3</span><div class="clause-text"><div class="d-block" data-ar="">يعود تقدير الإجراء المناسب إلى الشركة بحسب طبيعة الحالة وسجل التاجر ومدى تعاونه أثناء المراجعة.</div><div class="d-block" data-en="">Determination of the appropriate measure rests with the Company, taking into account the nature of the case, the Merchant's record, and their level of cooperation during the review.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">5</span><span data-ar="">معايير تقدير العقوبة</span><span data-en="">Penalty Assessment Criteria</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">5.1</span><div class="clause-text"><div class="d-block" data-ar="">عدد مرات تكرار المخالفة.</div><div class="d-block" data-en="">Number of times the violation has been repeated.</div></div></div>
+<div class="clause"><span class="clause-num">5.2</span><div class="clause-text"><div class="d-block" data-ar="">أثر المخالفة على العميل.</div><div class="d-block" data-en="">Impact of the violation on the Client.</div></div></div>
+<div class="clause"><span class="clause-num">5.3</span><div class="clause-text"><div class="d-block" data-ar="">عدد الطلبات المتضررة.</div><div class="d-block" data-en="">Number of orders affected.</div></div></div>
+<div class="clause"><span class="clause-num">5.4</span><div class="clause-text"><div class="d-block" data-ar="">وجود قصد أو إهمال واضح.</div><div class="d-block" data-en="">Presence of clear intent or negligence.</div></div></div>
+<div class="clause"><span class="clause-num">5.5</span><div class="clause-text"><div class="d-block" data-ar="">تعاون التاجر أو عدم تعاونه أثناء المراجعة.</div><div class="d-block" data-en="">Merchant's cooperation or lack thereof during the review.</div></div></div>
+<div class="clause"><span class="clause-num">5.6</span><div class="clause-text"><div class="d-block" data-ar="">سجل التاجر العام داخل المنصة.</div><div class="d-block" data-en="">The Merchant's general track record within the Platform.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">6</span><span data-ar="">حماية حق العميل</span><span data-en="">Protection of Client Rights</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">6.1</span><div class="clause-text"><div class="d-block" data-ar="">تلتزم الشركة بحماية حق العميل كاملًا داخل حدود الطلب المسجل في المنصة.</div><div class="d-block" data-en="">The Company is committed to fully protecting the Client's rights within the limits of the order registered on the Platform.</div></div></div>
+<div class="clause"><span class="clause-num">6.2</span><div class="clause-text"><div class="d-block" data-ar="">لا يجوز للتاجر تعطيل حق العميل أو تأخير استحقاقه دون مبرر واضح ومقبول.</div><div class="d-block" data-en="">The Merchant may not obstruct the Client's rights or delay their entitlement without a clear and acceptable justification.</div></div></div>
+<div class="clause"><span class="clause-num">6.3</span><div class="clause-text"><div class="d-block" data-ar="">كل طلب يتم قبوله من التاجر يصبح التزامًا فعليًا عليه ويجب إتمامه وفق الشروط الظاهرة في العرض ووفق هذه السياسات.</div><div class="d-block" data-en="">Every order accepted by the Merchant becomes a binding obligation that must be fulfilled in accordance with the terms displayed in the offer and these Policies.</div></div></div>
+</div>
+</div>
+</div>
+<!-- ================================================================
+     PAGE 8 — CLIENT TERMS
+     ================================================================ -->
+<div class="policy-section" id="page-client-terms">
+<div class="section-header">
+<span class="badge cat-client"><span data-ar="">العملاء</span><span data-en="">Clients</span></span>
+<h2><span data-ar="">شروط وأحكام العملاء في منصة P2P</span><span data-en="">Client Terms &amp; Conditions — P2P Platform</span></h2>
+<p class="section-description"><span class="d-block" data-ar="">الشروط والأحكام المنظمة لاستخدام العملاء لمنصة الدفع المباشر P2P، بما يشمل إنشاء الطلبات واستخدام وسائل الدفع وإتمام عمليات الإيداع والسحب.</span><span class="d-block" data-en="">The terms and conditions governing Client use of the P2P Direct Payment Platform, covering order creation, use of payment methods, and the completion of deposit and withdrawal transactions.</span></p>
+</div>
+<div class="intro-block"><span class="d-block" data-ar="">
+        تقرأ هذه الشروط والأحكام بالاقتران مع شروط وأحكام منصة الدفع المباشر P2P والسياسات الأخرى ذات الصلة المنشورة على الموقع.<br/><br/>
+        وتنظم هذه الشروط والأحكام استخدام العملاء للمنصة، وتحدد حقوقهم والتزاماتهم وآلية إنشاء الطلبات وإتمامها والالتزام بقواعد الأمان والتحقق.
+      </span><span class="d-block" data-en="">
+
+These Terms and Conditions are to be read in conjunction with the P2P Direct Payment Platform Terms and Conditions and any other related policies published on the website.<br/><br/>These Terms and Conditions govern Client use of the Platform and define their rights and obligations, the mechanism for creating and completing orders, and compliance with security and verification requirements.
+</span></div>
+<div class="article-block open">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">1</span><span data-ar="">التزامات العميل العامة</span><span data-en="">General Client Obligations</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">1.1</span><div class="clause-text"><div class="d-block" data-ar="">يلتزم العميل باستخدام بياناته الحقيقية والمحدثة فقط.</div><div class="d-block" data-en="">The Client is obligated to use only their genuine and current information.</div></div></div>
+<div class="clause"><span class="clause-num">1.2</span><div class="clause-text"><div class="d-block" data-ar="">يلتزم العميل باستخدام وسيلة دفع تخصه شخصيًا ما لم يوافق التاجر على غير ذلك، وتبقى آثار تلك الحالة خاضعة لسياسة التعامل مع الطرف الثالث.</div><div class="d-block" data-en="">The Client is obligated to use payment methods personally owned by them, unless the Merchant agrees otherwise.</div></div></div>
+<div class="clause"><span class="clause-num">1.3</span><div class="clause-text"><div class="d-block" data-ar="">يلتزم العميل بمتابعة الطلبات المفتوحة وعدم تركها دون استكمال أو متابعة.</div><div class="d-block" data-en="">The Client is obligated to monitor open orders and not leave them without completion or follow-up.</div></div></div>
+<div class="clause"><span class="clause-num">1.4</span><div class="clause-text"><div class="d-block" data-ar="">يلتزم العميل باستخدام أسلوب مهني ومهذب في التواصل مع التاجر ومع القنوات الرسمية للدعم.</div><div class="d-block" data-en="">The Client is obligated to maintain a professional and courteous communication style when interacting with the Merchant and official support channels.</div></div></div>
+<div class="clause"><span class="clause-num">1.5</span><div class="clause-text"><div class="d-block" data-ar="">يلتزم العميل بإدخال البيانات الصحيحة داخل كل طلب ويتحمل مسؤولية أي خطأ أو نقص فيها.</div><div class="d-block" data-en="">The Client is obligated to enter accurate data within each order and bears responsibility for any errors or omissions therein.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">2</span><span data-ar="">التزامات العميل في طلبات الإيداع</span><span data-en="">Client Obligations in Deposit Orders</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">2.1</span><div class="clause-text"><div class="d-block" data-ar="">يجب على العميل اختيار التاجر المناسب والمبلغ الصحيح وطريقة الدفع المناسبة قبل إنشاء الطلب.</div><div class="d-block" data-en="">The Client must select the appropriate Merchant, the correct amount, and the appropriate payment method prior to creating the order.</div></div></div>
+<div class="clause"><span class="clause-num">2.2</span><div class="clause-text"><div class="d-block" data-ar="">بعد قبول الطلب من التاجر، يجب على العميل تنفيذ التحويل الفعلي من وسيلة الدفع التي يعتمدها أو يختارها بصورة صحيحة.</div><div class="d-block" data-en="">After the Merchant accepts the order, the Client must execute the actual transfer correctly.</div></div></div>
+<div class="clause"><span class="clause-num">2.3</span><div class="clause-text"><div class="d-block" data-ar="">يجب على العميل عدم الضغط على زر تأكيد الدفع أو "تم الدفع" إلا بعد تنفيذ التحويل فعليًا.</div><div class="d-block" data-en="">The Client must not press the payment confirmation button until the transfer has been actually executed.</div></div></div>
+<div class="clause"><span class="clause-num">2.4</span><div class="clause-text"><div class="d-block" data-ar="">يجب على العميل رفع إثبات التحويل داخل الطلب بصورة واضحة وصحيحة ومرتبطة بنفس الطلب.</div><div class="d-block" data-en="">The Client must upload proof of transfer within the order in a clear, accurate manner linked to the same order.</div></div></div>
+<div class="clause"><span class="clause-num">2.5</span><div class="clause-text"><div class="d-block" data-ar="">لا يجوز للعميل محاولة إتمام العملية أو استكمالها خارج المنصة أو على خلاف بيانات الطلب.</div><div class="d-block" data-en="">The Client may not attempt to complete or continue the transaction outside the Platform or contrary to the order's documented data.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">3</span><span data-ar="">التزامات العميل في طلبات السحب</span><span data-en="">Client Obligations in Withdrawal Orders</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">3.1</span><div class="clause-text"><div class="d-block" data-ar="">يجب على العميل أولًا تحويل الرصيد من حسابه التداولي إلى حساب P2P ثم إلى محفظة P2P وفق الإجراءات المعتمدة.</div><div class="d-block" data-en="">The Client must first transfer the balance from their trading account to the P2P account, and then to the P2P Wallet, in accordance with the approved procedures.</div></div></div>
+<div class="clause"><span class="clause-num">3.2</span><div class="clause-text"><div class="d-block" data-ar="">يجب على العميل إرسال رقم المحفظة أو الحساب الذي يرغب باستلام الأموال عليه داخل محادثة الطلب بصورة واضحة وصحيحة.</div><div class="d-block" data-en="">The Client must send the wallet or account number to which they wish to receive funds within the order chat, clearly and accurately.</div></div></div>
+<div class="clause"><span class="clause-num">3.3</span><div class="clause-text"><div class="d-block" data-ar="">يجب على العميل عدم تأكيد الاستلام أو تحرير الطلب إلا بعد التأكد الكامل من وصول الأموال إليه فعليًا.</div><div class="d-block" data-en="">The Client must not confirm receipt or release the order until they have fully confirmed actual receipt of funds.</div></div></div>
+<div class="clause"><span class="clause-num">3.4</span><div class="clause-text"><div class="d-block" data-ar="">يتم تأكيد الاستلام من خلال رمز التحقق (OTP) المرسل إلى البريد الإلكتروني المسجل، ويتحمل العميل مسؤولية استخدامه بصورة صحيحة وعدم تفعيله قبل التحقق الكامل من الاستلام.</div><div class="d-block" data-en="">Receipt is confirmed through a One-Time Password (OTP) sent to the registered email address. The Client bears responsibility for its correct use and for not activating it prior to full verification of receipt.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">4</span><span data-ar="">المحفظة والتحويلات الداخلية</span><span data-en="">Wallet &amp; Internal Transfers</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">4.1</span><div class="clause-text"><div class="d-block" data-ar="">يتحمل العميل مسؤولية التأكد من تحويل الأموال بصورة صحيحة بين:
+            <ul class="sub-list">
+<li>الحساب التداولي</li>
+<li>حساب P2P</li>
+<li>محفظة P2P</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+The Client bears responsibility for ensuring funds are transferred correctly between: the Trading Account, P2P Account, and P2P Wallet.
+</div></div></div>
+<div class="clause"><span class="clause-num">4.2</span><div class="clause-text"><div class="d-block" data-ar="">أي خطأ في اختيار الحسابات أو في إدخال المبلغ أو في عدم استكمال التحويل الداخلي يبقى على مسؤولية العميل ما لم يثبت وجود خلل تقني من جهة المنصة.</div><div class="d-block" data-en="">Any error in account selection, amount entry, or failure to complete an internal transfer remains the Client's responsibility, unless a technical fault on the Platform's part is established.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">5</span><span data-ar="">النزاعات والاعتراضات</span><span data-en="">Disputes &amp; Objections</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">5.1</span><div class="clause-text"><div class="d-block" data-ar="">يحق للعميل تقديم اعتراض أو مناشدة عند وجود نزاع حقيقي متعلق بطلبه.</div><div class="d-block" data-en="">The Client is entitled to file an objection or appeal where a genuine dispute exists relating to their order.</div></div></div>
+<div class="clause"><span class="clause-num">5.2</span><div class="clause-text"><div class="d-block" data-ar="">يجب تقديم الاعتراض فور ظهور المشكلة أو خلال مدة معقولة تسمح بالتحقق من الوقائع والأدلة.</div><div class="d-block" data-en="">The objection must be filed immediately upon the issue arising, or within a reasonable period that permits verification of the facts and evidence.</div></div></div>
+<div class="clause"><span class="clause-num">5.3</span><div class="clause-text"><div class="d-block" data-ar="">يجوز للشركة عدم قبول المناشدات المتأخرة إذا أدى التأخير إلى تعذر التحقق من الوقائع أو ضياع الأدلة أو ضعف القدرة على الفصل العادل.</div><div class="d-block" data-en="">The Company may decline to accept late appeals where the delay has made it impossible to verify the facts or has resulted in the loss of evidence.</div></div></div>
+<div class="clause"><span class="clause-num">5.4</span><div class="clause-text"><div class="d-block" data-ar="">يلتزم العميل بالتعاون الكامل مع الشركة وتقديم ما يطلب منه من إثباتات أو وسائل تحقق في حدود الحاجة للتحقق من الطلب.</div><div class="d-block" data-en="">The Client is obligated to fully cooperate with the Company and to provide any requested proofs or verification measures.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">6</span><span data-ar="">مسؤولية العميل</span><span data-en="">Client Liability</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">6.1</span><div class="clause-text"><div class="d-block" data-ar="">يتحمل العميل مسؤولية:
+            <ul class="sub-list">
+<li>صحة بيانات الحساب</li>
+<li>صحة بيانات التحويل</li>
+<li>صحة الإثباتات</li>
+<li>استخدام وسيلة الدفع على نحو صحيح</li>
+<li>توقيت التحرير</li>
+<li>عدم إساءة استخدام المنصة أو طلباتها</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+The Client bears responsibility for: accuracy of account data, accuracy of transfer details, validity of proof of transfer, correct use of the payment method, timing of order release, and non-misuse of the Platform.
+</div></div></div>
+<div class="clause"><span class="clause-num">6.2</span><div class="clause-text"><div class="d-block" data-ar="">لا تتحمل الشركة مسؤولية أي ضرر أو تأخير ينتج عن مخالفة العميل للتعليمات أو عن تحويله إلى بيانات خاطئة أو عن تعامله خارج المنصة.</div><div class="d-block" data-en="">The Company bears no liability for any damage or delay resulting from the Client's failure to follow instructions, transfer to incorrect details, or conduct transactions outside the Platform.</div></div></div>
+</div>
+</div>
+</div>
+<!-- ================================================================
+     PAGE 9 — CLIENT OPS
+     ================================================================ -->
+<div class="policy-section" id="page-client-ops">
+<div class="section-header">
+<span class="badge cat-client"><span data-ar="">العملاء</span><span data-en="">Clients</span></span>
+<h2><span data-ar="">سياسة الإيداع والسحب في منصة P2P</span><span data-en="">Deposit &amp; Withdrawal Policy — P2P Platform</span></h2>
+<p class="section-description"><span class="d-block" data-ar="">الضوابط والإجراءات الخاصة بعمليات الإيداع والسحب عبر المنصة، بما يشمل انتقال الأموال بين الحسابات وإثباتات التحويل وإتمام الطلبات.</span><span class="d-block" data-en="">Controls and procedures governing deposit and withdrawal transactions on the Platform, covering fund movement between accounts, proof of transfer requirements, and order completion.</span></p>
+</div>
+<div class="article-block open">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">1</span><span data-ar="">سياسة الإيداع</span><span data-en="">Deposit Policy</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body"><div class="d-block" data-ar="">
+<div class="steps-block">
+<div class="step-item"><span class="step-num">1</span>يبدأ العميل باختيار التاجر المناسب من قائمة عروض الإيداع داخل المنصة.</div>
+<div class="step-item"><span class="step-num">2</span>يحدد العميل المبلغ وطريقة الدفع ثم ينشئ الطلب.</div>
+<div class="step-item"><span class="step-num">3</span>بعد قبول التاجر للطلب يتم حجز الرصيد من محفظة التاجر لصالح الطلب.</div>
+<div class="step-item"><span class="step-num">4</span>يقوم التاجر بإرسال بيانات الدفع الخاصة به داخل محادثة الطلب.</div>
+<div class="step-item"><span class="step-num">5</span>يقوم العميل بالتحويل الفعلي ورفع إثبات التحويل الصحيح ثم تأكيد الدفع.</div>
+<div class="step-item"><span class="step-num">6</span>بعد تحقق التاجر من وصول الأموال فعليًا إلى حسابه أو محفظته يقوم بتحرير الطلب.</div>
+<div class="step-item"><span class="step-num">7</span>ينتقل الرصيد المحجوز إلى محفظة العميل داخل المنصة.</div>
+<div class="step-item"><span class="step-num">8</span>بعد ذلك يجوز للعميل تحويل الأموال من محفظة P2P إلى حساب التداول وفق إجراءات التحويل الداخلي المعتمدة.</div>
+</div>
+</div><div class="d-block" data-en="">
+<div class="steps-block">
+<div class="step-item"><span class="step-num">1</span>The Client begins by selecting the appropriate Merchant from the list of deposit offers within the Platform.</div>
+<div class="step-item"><span class="step-num">2</span>The Client specifies the amount and payment method, then creates the order.</div>
+<div class="step-item"><span class="step-num">3</span>After the Merchant accepts the order, the balance is escrowed from the Merchant's wallet in favor of the order.</div>
+<div class="step-item"><span class="step-num">4</span>The Merchant sends their payment details within the order chat.</div>
+<div class="step-item"><span class="step-num">5</span>The Client executes the actual transfer, uploads valid proof of transfer, and confirms payment.</div>
+<div class="step-item"><span class="step-num">6</span>After the Merchant verifies actual receipt of funds, they release the order.</div>
+<div class="step-item"><span class="step-num">7</span>The escrowed balance is transferred to the Client's wallet within the Platform.</div>
+<div class="step-item"><span class="step-num">8</span>The Client may then transfer funds from the P2P Wallet to the trading account in accordance with the approved internal transfer procedures.</div>
+</div>
+</div></div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">2</span><span data-ar="">سياسة السحب</span><span data-en="">Withdrawal Policy</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body"><div class="d-block" data-ar="">
+<div class="steps-block">
+<div class="step-item"><span class="step-num">1</span>يبدأ العميل بتحويل الرصيد من حساب التداول إلى حساب P2P ثم إلى محفظة P2P.</div>
+<div class="step-item"><span class="step-num">2</span>يختار العميل التاجر المناسب من قائمة عروض السحب.</div>
+<div class="step-item"><span class="step-num">3</span>يحدد العميل المبلغ وطريقة الاستلام ثم ينشئ الطلب.</div>
+<div class="step-item"><span class="step-num">4</span>بعد قبول التاجر للطلب يتم حجز الرصيد من محفظة العميل لصالح الطلب.</div>
+<div class="step-item"><span class="step-num">5</span>يرسل العميل بيانات الاستلام داخل محادثة الطلب.</div>
+<div class="step-item"><span class="step-num">6</span>يقوم التاجر بتحويل الأموال للعميل عبر طريقة الدفع المتفق عليها داخل الطلب.</div>
+<div class="step-item"><span class="step-num">7</span>يرفع التاجر إثبات التحويل الصحيح داخل الطلب.</div>
+<div class="step-item"><span class="step-num">8</span>بعد تأكد العميل من استلام الأموال فعليًا يقوم بتحرير الطلب وإتمام العملية.</div>
+</div>
+</div><div class="d-block" data-en="">
+<div class="steps-block">
+<div class="step-item"><span class="step-num">1</span>The Client begins by transferring the balance from the trading account to the P2P account, then to the P2P Wallet.</div>
+<div class="step-item"><span class="step-num">2</span>The Client selects the appropriate Merchant from the list of withdrawal offers.</div>
+<div class="step-item"><span class="step-num">3</span>The Client specifies the amount and receipt method, then creates the order.</div>
+<div class="step-item"><span class="step-num">4</span>After the Merchant accepts the order, the balance is escrowed from the Client's wallet in favor of the order.</div>
+<div class="step-item"><span class="step-num">5</span>The Client sends their receipt details within the order chat.</div>
+<div class="step-item"><span class="step-num">6</span>The Merchant transfers funds to the Client via the payment method agreed upon within the order.</div>
+<div class="step-item"><span class="step-num">7</span>The Merchant uploads valid proof of transfer within the order.</div>
+<div class="step-item"><span class="step-num">8</span>After the Client confirms actual receipt of funds, they release the order and complete the transaction.</div>
+</div>
+</div></div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">3</span><span data-ar="">ضوابط مشتركة</span><span data-en="">Shared Controls</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">3.1</span><div class="clause-text"><div class="d-block" data-ar="">لا يجوز اعتماد أي تحويل خارج بيانات الطلب أو خارج المحادثة الداخلية الخاصة به.</div><div class="d-block" data-en="">No transfer may be recognized that was made outside the order's documented data or its internal chat.</div></div></div>
+<div class="clause"><span class="clause-num">3.2</span><div class="clause-text"><div class="d-block" data-ar="">لا يجوز الضغط على أي زر تأكيد قبل التنفيذ الفعلي للعملية محل التأكيد.</div><div class="d-block" data-en="">No confirmation button may be pressed prior to the actual execution of the action being confirmed.</div></div></div>
+<div class="clause"><span class="clause-num">3.3</span><div class="clause-text"><div class="d-block" data-ar="">لا يجوز إتمام الطلب إذا كانت الإثباتات غير صحيحة أو غير واضحة أو غير مرتبطة بالطلب.</div><div class="d-block" data-en="">An order may not be completed where the submitted proof is inaccurate, unclear, or unrelated to the order.</div></div></div>
+<div class="clause"><span class="clause-num">3.4</span><div class="clause-text"><div class="d-block" data-ar="">لا يجوز لأي طرف تأكيد الدفع أو تأكيد الاستلام أو تحرير الطلب إلا بعد التحقق الفعلي والنهائي من تنفيذ التحويل واستلامه بصورة صحيحة، ويعد أي تأكيد أو تحرير يتم قبل ذلك على مسؤولية القائم به.</div><div class="d-block" data-en="">No party may confirm payment, confirm receipt, or release an order until actual and final verification that the transfer has been properly executed and received. Any confirmation or release made prior to such verification is the sole responsibility of the party making it.</div></div></div>
+<div class="clause"><span class="clause-num">3.5</span><div class="clause-text"><div class="d-block" data-ar="">عند وجود أي مشكلة أو شك أو تعارض في البيانات، يجب إيقاف العملية فورًا ورفع اعتراض أو التواصل عبر القنوات الرسمية.</div><div class="d-block" data-en="">In the event of any issue, doubt, or data discrepancy, the transaction must be immediately halted and an objection filed or official support channels contacted.</div></div></div>
+</div>
+</div>
+</div>
+<!-- ================================================================
+     PAGE 10 — CLIENT VIOLATIONS
+     ================================================================ -->
+<div class="policy-section" id="page-client-violations">
+<div class="section-header">
+<span class="badge cat-client"><span data-ar="">العملاء</span><span data-en="">Clients</span></span>
+<h2><span data-ar="">نظام مخالفات العملاء والعقوبات</span><span data-en="">Client Violations &amp; Penalties System</span></h2>
+<p class="section-description"><span class="d-block" data-ar="">تصنيف المخالفات السلوكية والتشغيلية الخاصة بالعملاء داخل منصة P2P وآلية تطبيق الإجراءات والعقوبات عند التكرار أو التزوير أو إساءة الاستخدام.</span><span class="d-block" data-en="">Classification of behavioral and operational violations specific to Clients on the P2P Platform, and the mechanism for applying disciplinary measures and penalties in cases of repetition, forgery, or misuse.</span></p>
+</div>
+<div class="intro-block"><span class="d-block" data-ar="">
+        يهدف هذا النظام إلى تنظيم مساءلة العملاء داخل منصة الدفع المباشر P2P وتحديد الحالات التي تعد مخالفة لسياسات المنصة والإجراءات والعقوبات التي يجوز للشركة اتخاذها عند ثبوت هذه المخالفات، بما يضمن حماية التجار والحفاظ على أمان المعاملات واستقرار بيئة العمل داخل المنصة.<br/><br/>
+        وتطبق هذه الإجراءات والعقوبات وفقًا لطبيعة المخالفة وتكرارها وأثرها على الطرف الآخر وسجل العميل داخل المنصة.
+      </span><span class="d-block" data-en="">
+
+This System aims to establish Client accountability within the P2P Direct Payment Platform and define the measures and penalties the Company may impose upon establishment of such violations.<br/><br/>These measures and penalties are applied in accordance with the nature of the violation, its frequency, its impact on the counterparty, and the Client's track record within the Platform.
+</span></div>
+<div class="article-block open">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">1</span><span data-ar="">الحالات التي تعد مخالفات من جانب العميل</span><span data-en="">Client Violations</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body"><div class="d-block" data-ar="">
+<p style="font-weight:700;color:var(--accent-cyan);font-size:0.85rem;margin:0.75rem 0 0.4rem;">1.1 مخالفات تتعلق بإنشاء الطلبات</p>
+<ul class="sub-list" style="margin-bottom:1rem;">
+<li>فتح طلب دون وجود نية فعلية لإتمام العملية.</li>
+<li>فتح طلب ثم تركه دون استكمال أو متابعة بما يؤدي إلى تعطيل وقت التاجر أو استهلاك العرض دون مبرر حتى انتهاء مدة صلاحية الطلب.</li>
+<li>فتح طلبات متكررة بصورة عبثية أو بهدف إرباك التجار أو تعطيل عمل المنصة.</li>
+<li>فتح الطلب ثم إلغاؤه مباشرة دون انتظار رد التاجر ودون وجود سبب مشروع.</li>
+<li>محاولة فتح أكثر من طلب خلافًا للحدود المسموح بها داخل النظام أو بالتحايل على القيود المعتمدة.</li>
+</ul>
+<p style="font-weight:700;color:var(--accent-cyan);font-size:0.85rem;margin:0.75rem 0 0.4rem;">1.2 مخالفات تتعلق بطلبات الإيداع</p>
+<ul class="sub-list" style="margin-bottom:1rem;">
+<li>الضغط على زر تأكيد الدفع أو "تم الدفع" قبل تنفيذ التحويل فعليًا.</li>
+<li>رفع إثبات تحويل غير صحيح أو غير واضح أو مضلل أو لا يخص الطلب محل التنفيذ.</li>
+<li>الادعاء بإتمام التحويل دون وجود تحويل فعلي.</li>
+<li>التأخر غير المبرر في رفع الإثبات بعد تنفيذ التحويل بما يسبب نزاعًا أو تأخيرًا في التنفيذ.</li>
+<li>الامتناع عن التعاون في التحقق عند طلب إثباتات إضافية أو توضيحات لازمة.</li>
+</ul>
+<p style="font-weight:700;color:var(--accent-cyan);font-size:0.85rem;margin:0.75rem 0 0.4rem;">1.3 مخالفات تتعلق بطلبات السحب</p>
+<ul class="sub-list" style="margin-bottom:1rem;">
+<li>تأكيد استلام الأموال أو تحرير الطلب قبل التحقق الفعلي من وصول المبلغ.</li>
+<li>الامتناع عن تحرير الطلب بعد استلام الأموال فعليًا دون سبب مشروع.</li>
+<li>الادعاء بعدم استلام المبلغ رغم ثبوت الاستلام وفق سجلات الطلب أو الأدلة المقدمة.</li>
+<li>إرسال بيانات استلام خاطئة أو ناقصة أو غير صالحة ثم تحميل التاجر أو المنصة نتيجة الخطأ.</li>
+<li>تعطيل إتمام الطلب بعد قيام التاجر بالتحويل دون وجود مبرر مقبول.</li>
+</ul>
+<p style="font-weight:700;color:var(--accent-cyan);font-size:0.85rem;margin:0.75rem 0 0.4rem;">1.4 مخالفات تتعلق بالتواصل والسلوك</p>
+<ul class="sub-list" style="margin-bottom:1rem;">
+<li>استخدام ألفاظ مسيئة أو تهديدات أو أي سلوك غير مهني تجاه التاجر أو فريق الدعم.</li>
+<li>محاولة الضغط على التاجر أو ابتزازه أو تهديده للحصول على منفعة غير مستحقة.</li>
+<li>محاولة نقل التعامل خارج منصة P2P أو مطالبة التاجر بإتمام العملية خارج النظام.</li>
+<li>تبادل وسائل تواصل شخصية داخل الطلب بقصد تجاوز سياسات المنصة أو إتمام تعاملات خارجية.</li>
+</ul>
+<p style="font-weight:700;color:var(--accent-cyan);font-size:0.85rem;margin:0.75rem 0 0.4rem;">1.5 مخالفات تتعلق بالأمان والتحقق</p>
+<ul class="sub-list">
+<li>تقديم معلومات أو مستندات أو بيانات غير صحيحة أو مضللة.</li>
+<li>رفض أو تعطيل إجراءات التحقق المطلوبة من الشركة دون سبب مشروع.</li>
+<li>استخدام طرف ثالث بصورة تؤدي إلى نزاع أو تعذر التحقق أو الإضرار بحقوق الأطراف.</li>
+<li>إنشاء أو استخدام حسابات متعددة أو مرتبطة بقصد التحايل على السياسات أو تجاوز القيود أو إخفاء سجل سابق.</li>
+<li>إساءة استخدام الاعتراضات أو رفع مناشدات كيدية أو غير جادة بقصد تعطيل الطلبات أو الضغط على الطرف الآخر.</li>
+</ul>
+</div><div class="d-block" data-en="">
+<span class="sub-cat-title">1.1 Order Creation Violations</span>
+<ul class="sub-list" style="margin-bottom:1rem;">
+<li>Opening an order without genuine intent to complete the transaction.</li>
+<li>Opening an order and then abandoning it without completion or follow-up until the order expires.</li>
+<li>Repeatedly opening orders in a frivolous manner or with the intent to confuse Merchants or disrupt Platform operations.</li>
+<li>Opening an order and immediately cancelling it without awaiting the Merchant's response and without legitimate reason.</li>
+<li>Attempting to open more than one order in contravention of the limits permitted within the System.</li>
+</ul>
+<span class="sub-cat-title">1.2 Deposit Order Violations</span>
+<ul class="sub-list" style="margin-bottom:1rem;">
+<li>Pressing the payment confirmation or "Payment Sent" button prior to actual execution of the transfer.</li>
+<li>Uploading an inaccurate, unclear, misleading, or irrelevant proof of transfer.</li>
+<li>Claiming completion of a transfer without an actual transfer having been made.</li>
+<li>Unjustified delay in uploading proof after executing the transfer.</li>
+<li>Refusing to cooperate with verification when additional proofs or necessary clarifications are requested.</li>
+</ul>
+<span class="sub-cat-title">1.3 Withdrawal Order Violations</span>
+<ul class="sub-list" style="margin-bottom:1rem;">
+<li>Confirming receipt of funds or releasing the order prior to actual verification of receipt.</li>
+<li>Refusing to release the order after actual receipt of funds without legitimate reason.</li>
+<li>Claiming non-receipt of funds despite receipt being established by the order records or submitted evidence.</li>
+<li>Providing incorrect, incomplete, or invalid receipt details and then attributing responsibility for the resulting error to the Merchant or the Platform.</li>
+<li>Obstructing completion of the order after the Merchant has made the transfer without acceptable justification.</li>
+</ul>
+<span class="sub-cat-title">1.4 Communication &amp; Conduct Violations</span>
+<ul class="sub-list" style="margin-bottom:1rem;">
+<li>Use of abusive language, threats, or any unprofessional conduct toward the Merchant or support team.</li>
+<li>Attempting to coerce, extort, or threaten the Merchant to obtain an undue benefit.</li>
+<li>Attempting to move the transaction outside the P2P Platform or requesting the Merchant to complete the transaction outside the System.</li>
+<li>Exchanging personal contact details within the order with the intent to circumvent Platform policies.</li>
+</ul>
+<span class="sub-cat-title">1.5 Security &amp; Verification Violations</span>
+<ul class="sub-list">
+<li>Providing inaccurate, misleading, or false information, documents, or data.</li>
+<li>Refusing or obstructing verification procedures required by the Company without legitimate reason.</li>
+<li>Using a third party in a manner that results in a dispute, impedes verification, or harms the rights of other parties.</li>
+<li>Creating or using multiple or linked accounts for the purpose of circumventing policies, bypassing restrictions, or concealing a prior record.</li>
+<li>Misusing the dispute mechanism or filing vexatious or frivolous appeals with the intent to disrupt orders or exert pressure on the counterparty.</li>
+</ul>
+</div></div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">2</span><span data-ar="">الإجراءات والعقوبات الخاصة بتكرار المخالفات</span><span data-en="">Measures &amp; Penalties for Repeated Violations</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">2.1</span><div class="clause-text"><div class="d-block" data-ar="">إذا قام العميل بفتح طلبات وتركها دون إكمالها حتى انتهاء مدة صلاحيتها، أو قام بفتح الطلبات وإلغائها مباشرة دون سبب مشروع، وتم تكرار الحالة نفسها ثلاث مرات سواء كانت متتالية أو غير متتالية، فيجوز للشركة تعليق حساب العميل مؤقتًا إلى حين تواصله معها وبيان سبب هذا السلوك.</div><div class="d-block" data-en="">Where the Client opens orders and abandons them until expiry, or opens and immediately cancels them without legitimate reason, and such conduct is repeated three times, the Company may temporarily suspend the Client's account pending the Client's contact and explanation of the behavior.</div></div></div>
+<div class="clause"><span class="clause-num">2.2</span><div class="clause-text"><div class="d-block" data-ar="">في هذه الحالة يلتزم العميل بتقديم طلب عبر Support يوضح فيه تفسيرًا منطقيًا للحالة وتعهدًا بعدم تكرارها، ويخضع طلبه للمراجعة وفق تقدير الشركة.</div><div class="d-block" data-en="">In such case, the Client is obligated to submit a request through Support providing a logical explanation and an undertaking not to repeat it. Their request is subject to review at the Company's discretion.</div></div></div>
+<div class="clause"><span class="clause-num">2.3</span><div class="clause-text"><div class="d-block" data-ar="">إذا تكررت الحالة نفسها مرة أخرى بعد التنبيه ورفع التعليق، فيجوز للشركة حظر الحساب نهائيًا.</div><div class="d-block" data-en="">If the same conduct recurs after the warning and lifting of the suspension, the Company may permanently ban the account.</div></div></div>
+<div class="clause"><span class="clause-num">2.4</span><div class="clause-text"><div class="d-block" data-ar="">في باقي المخالفات غير الجسيمة تطبق القاعدة نفسها بحسب نوع المخالفة الواحدة؛ أي أن ثلاث مخالفات موثقة من النوع نفسه تستوجب تعليق الحساب أو تقييده، وتكرار المخالفة نفسها للمرة الرابعة بعد التنبيه يجيز للشركة حظر الحساب نهائيًا.</div><div class="d-block" data-en="">For other non-serious violations: three documented violations of the same type warrant account suspension or restriction, and a fourth recurrence after a warning entitles the Company to permanently ban the account.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">3</span><span data-ar="">حالات الحظر النهائي الفوري</span><span data-en="">Immediate Permanent Ban Cases</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">3.1</span><div class="clause-text"><div class="d-block" data-ar="">يجوز للشركة حظر حساب العميل نهائيًا وبشكل مباشر دون المرور بمراحل التدرج إذا ثبت أي من الحالات الآتية:
+            <ul class="sub-list">
+<li>رفع صور أو إثباتات معدلة أو مزورة دون وجود تحويل فعلي</li>
+<li>الادعاء الكاذب بإتمام التحويل</li>
+<li>الادعاء الكاذب بعدم الاستلام رغم ثبوت خلاف ذلك</li>
+<li>رفض التعاون في التحقق بعد طلب فيديو أو أدلة إضافية</li>
+<li>الامتناع عن الاستجابة لإجراءات التحقق المتعلقة بشبهة التزوير أو الاحتيال</li>
+<li>استخدام المنصة في الاحتيال أو محاولة الاحتيال أو استغلالها بشكل منظم أو متكرر</li>
+<li>استخدام حسابات متعددة أو مرتبطة للتحايل على سياسات المنصة أو قراراتها</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+The Company may permanently ban a Client's account directly, without proceeding through the progressive stages, upon establishment of any of the following: uploading altered or forged proofs, falsely claiming completion of a transfer, falsely claiming non-receipt despite evidence to the contrary, refusing to cooperate with verification after a request for additional evidence, using the Platform for fraud, or using multiple accounts to circumvent Platform policies.
+</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">4</span><span data-ar="">تصنيف المخالفات</span><span data-en="">Violation Classification</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body">
+<div class="clause"><span class="clause-num">4.1</span><div class="clause-text"><div class="d-block" data-ar="">يجوز للشركة تصنيف المخالفات بحسب جسامتها إلى:
+            <ul class="sub-list">
+<li>مخالفات بسيطة</li>
+<li>مخالفات متوسطة</li>
+<li>مخالفات جسيمة</li>
+</ul>
+</div><div class="d-block" data-en="">
+
+The Company may classify violations according to their severity as: Minor violations, Moderate violations, and Serious violations.
+</div></div></div>
+<div class="clause"><span class="clause-num">4.2</span><div class="clause-text"><div class="d-block" data-ar="">تعد المخالفة جسيمة متى انطوت على شبهة احتيال أو تزوير أو تضليل أو اعتداء على حقوق الطرف الآخر أو على سلامة النظام.</div><div class="d-block" data-en="">A violation is considered serious where it involves suspicion of fraud, forgery, misrepresentation, or infringement of the counterparty's rights or the integrity of the System.</div></div></div>
+</div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">5</span><span data-ar="">الإجراءات التي يجوز اتخاذها بحق العميل</span><span data-en="">Measures Available Against the Client</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body"><div class="d-block" data-ar="">
+<p style="font-weight:700;color:#f0c060;font-size:0.85rem;margin:0.75rem 0 0.4rem;">أ) إجراءات تصحيحية وتنبيهية</p>
+<ul class="sub-list" style="margin-bottom:1rem;">
+<li>توجيه تنبيه أو إشعار رسمي للعميل</li>
+<li>إلزام العميل باستكمال التحقق أو تقديم إثباتات إضافية</li>
+<li>تقييد بعض وظائف الحساب مؤقتًا حتى إزالة سبب المخالفة</li>
+<li>تقييد إمكانية فتح طلبات جديدة لفترة محددة</li>
+</ul>
+<p style="font-weight:700;color:#f0c060;font-size:0.85rem;margin:0.75rem 0 0.4rem;">ب) إجراءات تقييدية</p>
+<ul class="sub-list" style="margin-bottom:1rem;">
+<li>تعليق القدرة على فتح طلبات إيداع أو سحب مؤقتًا</li>
+<li>تعليق حساب العميل مؤقتًا لحين انتهاء التحقيق أو استكمال التحقق</li>
+<li>تعليق التحويلات الداخلية المرتبطة بحساب P2P مؤقتًا عند الحاجة</li>
+<li>وضع الحساب تحت المراجعة أو المتابعة المشددة</li>
+</ul>
+<p style="font-weight:700;color:#ff8080;font-size:0.85rem;margin:0.75rem 0 0.4rem;">ج) إجراءات نهائية أو مشددة</p>
+<ul class="sub-list">
+<li>رفض الاعتراض أو الطلب إذا ثبت عدم جديته أو عدم صحته</li>
+<li>إغلاق الطلب أو اتخاذ القرار المناسب فيه وفق الأدلة</li>
+<li>إيقاف حساب العميل نهائيًا عند ثبوت وجود احتيال أو تزوير أو إساءة استخدام جسيمة</li>
+<li>حظر أي حسابات مرتبطة إذا ثبت استخدامها للتحايل أو الالتفاف على قرارات الشركة</li>
+</ul>
+</div><div class="d-block" data-en="">
+<span class="sub-cat-title" style="color:#f0c060;">A) Corrective and Warning Measures</span>
+<ul class="sub-list" style="margin-bottom:1rem;">
+<li>Issuing a warning or formal notice to the Client</li>
+<li>Requiring the Client to complete verification or provide additional proof</li>
+<li>Temporarily restricting certain account functions until the cause of the violation is removed</li>
+<li>Restricting the ability to open new orders for a specified period</li>
+</ul>
+<span class="sub-cat-title" style="color:#f0c060;">B) Restrictive Measures</span>
+<ul class="sub-list" style="margin-bottom:1rem;">
+<li>Temporarily suspending the ability to open deposit or withdrawal orders</li>
+<li>Temporarily suspending the Client's account until the investigation is completed or verification is finalized</li>
+<li>Temporarily suspending internal transfers linked to the P2P account where necessary</li>
+<li>Placing the account under review or enhanced monitoring</li>
+</ul>
+<span class="sub-cat-title" style="color:#ff8080;">C) Final or Escalated Measures</span>
+<ul class="sub-list">
+<li>Rejecting the objection or order if it is found to be non-serious or invalid</li>
+<li>Closing the order or taking the appropriate decision on it in light of the evidence</li>
+<li>Permanently suspending the Client's account if fraud, forgery, or gross abuse is established</li>
+<li>Banning any linked accounts if they are proven to have been used to circumvent or evade Company decisions</li>
+</ul>
+</div></div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)"><h3><span class="article-num">6</span><span data-ar="">معايير تقدير الإجراء المناسب</span><span data-en="">Criteria for Assessing the Appropriate Measure</span></h3><span class="article-toggle">▼</span></div>
+<div class="article-body"><div class="d-block" data-ar="">
+<p style="font-size:0.87rem;color:var(--text-secondary);margin-bottom:0.75rem;">يجوز للشركة مراعاة ما يلي عند تحديد الإجراء المناسب:</p>
+<ul class="sub-list">
+<li>طبيعة المخالفة وجسامتها</li>
+<li>عدد مرات تكرار المخالفة</li>
+<li>أثر المخالفة على التاجر أو على الطلب أو على النظام</li>
+<li>مدى تعاون العميل أثناء المراجعة أو التحقق</li>
+<li>السجل السابق للعميل داخل المنصة</li>
+<li>وجود شبهة احتيال أو تضليل أو سوء نية</li>
+<li>عدد الطلبات أو الحسابات المتأثرة بالمخالفة</li>
+</ul>
+</div><div class="d-block" data-en="">
+<p style="font-size:0.87rem;color:var(--text-secondary);margin-bottom:0.75rem;">The Company may take the following into account when determining the appropriate measure:</p>
+<ul class="sub-list">
+<li>The nature and seriousness of the violation</li>
+<li>The number of times the violation was repeated</li>
+<li>The effect of the violation on the Merchant, the order, or the System</li>
+<li>The Client's degree of cooperation during review or verification</li>
+<li>The Client's prior record on the Platform</li>
+<li>The existence of indications of fraud, misrepresentation, or bad faith</li>
+<li>The number of orders or accounts affected by the violation</li>
+</ul>
+</div></div>
+</div>
+<div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">7</span><span data-ar="">حماية حق التاجر والطلب</span><span data-en="">Protection of Merchant Rights and the Order</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="d-block" data-ar="">
+<div class="clause"><span class="clause-num">7.1</span><span class="clause-text">تلتزم الشركة بحماية حق التاجر كاملًا داخل حدود الطلب المسجل في المنصة.</span></div>
+<div class="clause"><span class="clause-num">7.2</span><span class="clause-text">لا يجوز للعميل تعطيل استحقاق التاجر أو تأخير تنفيذ القرار النهائي دون مبرر مشروع.</span></div>
+<div class="clause"><span class="clause-num">7.3</span><span class="clause-text">إذا ثبت أن العميل استلم الأموال أو قدم بيانات أو إثباتات غير صحيحة، يحق للشركة اتخاذ القرار المناسب في الطلب وفي الحساب وفق هذه السياسة والسياسات الأخرى ذات الصلة.</span></div>
+</div>
+<div class="d-block" data-en="">
+<div class="clause"><span class="clause-num">7.1</span><div class="clause-text">The Company is committed to fully protecting the Merchant's right within the limits of the order recorded on the Platform.</div></div>
+<div class="clause"><span class="clause-num">7.2</span><div class="clause-text">The Client may not obstruct the Merchant's entitlement or delay implementation of the final decision without legitimate justification.</div></div>
+<div class="clause"><span class="clause-num">7.3</span><div class="clause-text">If it is established that the Client received the funds or submitted incorrect data or proof, the Company may take the appropriate decision with respect to the order and the account in accordance with this policy and other related policies.</div></div>
+</div>
+</div>
+</div><div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">8</span><span data-ar="">إساءة استخدام المناشدات</span><span data-en="">Abuse of Appeals</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="d-block" data-ar="">
+<div class="clause"><span class="clause-num">8.1</span><span class="clause-text">يحظر على العميل استخدام الاعتراض أو المناشدة كوسيلة ضغط أو تأخير أو تعطيل أو تهرب من الالتزام.</span></div>
+<div class="clause"><span class="clause-num">8.2</span><span class="clause-text">إذا ثبت للشركة أن المناشدة كيدية أو غير جدية أو قائمة على بيانات غير صحيحة، يحق لها رفضها واتخاذ الإجراء المناسب على الحساب.</span></div>
+</div>
+<div class="d-block" data-en="">
+<div class="clause"><span class="clause-num">8.1</span><div class="clause-text">The Client is prohibited from using an objection or appeal as a means of pressure, delay, obstruction, or evasion of an obligation.</div></div>
+<div class="clause"><span class="clause-num">8.2</span><div class="clause-text">If the Company determines that an appeal is malicious, non-serious, or based on incorrect information, it may reject the appeal and take the appropriate action against the account.</div></div>
+</div>
+</div>
+</div><div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">9</span><span data-ar="">الحسابات المتعددة أو المرتبطة</span><span data-en="">Multiple or Linked Accounts</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="d-block" data-ar="">
+<div class="clause"><span class="clause-num">9.1</span><span class="clause-text">يحظر على العميل فتح أو استخدام أكثر من حساب على منصة P2P بقصد التحايل على السياسات أو تجاوز القيود أو إخفاء السجل السابق.</span></div>
+<div class="clause"><span class="clause-num">9.2</span><span class="clause-text">إذا ثبت وجود حسابات متعددة أو مرتبطة تستخدم لهذا الغرض، يحق للشركة تعليق أو إغلاق جميع الحسابات المرتبطة واتخاذ ما تراه مناسبًا.</span></div>
+</div>
+<div class="d-block" data-en="">
+<div class="clause"><span class="clause-num">9.1</span><div class="clause-text">The Client is prohibited from opening or using more than one account on the P2P Platform for the purpose of circumventing policies, bypassing restrictions, or concealing a prior record.</div></div>
+<div class="clause"><span class="clause-num">9.2</span><div class="clause-text">If it is established that multiple or linked accounts are being used for that purpose, the Company may suspend or close all related accounts and take whatever action it deems appropriate.</div></div>
+</div>
+</div>
+</div><div class="article-block">
+<div class="article-header" onclick="toggleArticle(this)">
+<h3><span class="article-num">10</span><span data-ar="">القرار النهائي</span><span data-en="">Final Decision</span></h3>
+<span class="article-toggle">▼</span>
+</div>
+<div class="article-body">
+<div class="d-block" data-ar="">
+<div class="clause"><span class="clause-num">10.1</span><span class="clause-text">يكون للشركة الحق في اتخاذ القرار النهائي المناسب بشأن المخالفة والإجراء أو العقوبة المترتبة عليها وفقًا للأدلة المتوفرة وسجلات المنصة والسياسات المعمول بها.</span></div>
+<div class="clause"><span class="clause-num">10.2</span><span class="clause-text">يعد هذا القرار ملزمًا للمستخدم ضمن حدود النظام والشروط المعتمدة.</span></div>
+</div>
+<div class="d-block" data-en="">
+<div class="clause"><span class="clause-num">10.1</span><div class="clause-text">The Company shall have the right to take the appropriate final decision regarding the violation and the measure or penalty resulting from it in accordance with the available evidence, the Platform records, and the applicable policies.</div></div>
+<div class="clause"><span class="clause-num">10.2</span><div class="clause-text">This decision shall be binding on the user within the limits of the System and the approved terms.</div></div>
+</div>
+</div>
+</div></div>
+<!-- END PAGE 10 -->
+</main>
+<!-- END MAIN -->
+</div>
+<!-- END LAYOUT -->
+<!-- Back to Top -->
+<button aria-label="Back to top" class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+/* ── Stars ── */
+(function() {
+  const container = document.getElementById('stars');
+  const count = 120;
+  for (let i = 0; i < count; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 2.5 + 0.5;
+    s.style.cssText = `
+      width:${size}px;height:${size}px;
+      top:${Math.random()*100}%;left:${Math.random()*100}%;
+      animation-duration:${Math.random()*6+4}s;
+      animation-delay:${Math.random()*6}s;
+    `;
+    container.appendChild(s);
+  }
+})();
+
+/* ── Language ── */
+function setLang(lang) {
+  const body = document.body;
+  body.classList.remove('lang-ar', 'lang-en');
+  body.classList.add('lang-' + lang);
+  body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  document.documentElement.lang = lang;
+
+  document.getElementById('btnAR').classList.toggle('active', lang === 'ar');
+  document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+  document.getElementById('btnAR').setAttribute('aria-pressed', lang === 'ar');
+  document.getElementById('btnEN').setAttribute('aria-pressed', lang === 'en');
+
+  // Update page title
+  const titleEl = document.querySelector('title');
+  if (titleEl) {
+    titleEl.textContent = lang === 'ar'
+      ? 'سياسات منصة P2P - INZO'
+      : 'P2P Platform Policies - INZO';
+  }
+}
+
+/* ── Page navigation ── */
+function showPage(id, el) {
+  // Hide all sections
+  document.querySelectorAll('.policy-section').forEach(s => s.classList.remove('active'));
+  // Remove active from all sidebar items
+  document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+
+  // Show target section
+  const target = document.getElementById('page-' + id);
+  if (target) {
+    target.classList.add('active');
+    // Scroll main to top
+    document.getElementById('mainContent').scrollTop = 0;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Set active on clicked item
+  if (el) el.classList.add('active');
+
+  // Close mobile sidebar
+  closeSidebar();
+}
+
+document.querySelectorAll('.sidebar-item').forEach(item => {
+  item.addEventListener('click', () => {
+    if (window.innerWidth <= 768) closeSidebar();
+  });
+});
+
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 768) {
+    closeSidebar();
+  }
+});
+
+/* ── Accordion ── */
+function toggleArticle(headerEl) {
+  const block = headerEl.closest('.article-block');
+  block.classList.toggle('open');
+}
+
+/* ── Sidebar mobile ── */
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  const toggle = document.getElementById('menuToggle');
+  const isOpen = sidebar.classList.toggle('open');
+  overlay.classList.toggle('open', isOpen);
+  toggle.classList.toggle('open', isOpen);
+  document.body.classList.toggle('menu-open', isOpen);
+  toggle.setAttribute('aria-expanded', String(isOpen));
+}
+
+function closeSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  const toggle = document.getElementById('menuToggle');
+  sidebar.classList.remove('open');
+  overlay.classList.remove('open');
+  toggle.classList.remove('open');
+  document.body.classList.remove('menu-open');
+  toggle.setAttribute('aria-expanded', 'false');
+}
+
+/* ── Back to top ── */
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+window.addEventListener('scroll', function() {
+  const btn = document.getElementById('backToTop');
+  btn.classList.toggle('visible', window.scrollY > 300);
+}, { passive: true });
+
+/* ── Keyboard: close sidebar on Escape ── */
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeSidebar();
+});
+</script>
+</body>
+</html>
